@@ -1,0 +1,127 @@
+[29-Mar-2020 12:06:03 America/Chicago] PHP Warning:  include(conn.php): failed to open stream: No such file or directory in /home2/sreecorp/public_html/bb/user/search.php on line 2
+[29-Mar-2020 12:06:03 America/Chicago] PHP Warning:  include(conn.php): failed to open stream: No such file or directory in /home2/sreecorp/public_html/bb/user/search.php on line 2
+[29-Mar-2020 12:06:03 America/Chicago] PHP Warning:  include(): Failed opening 'conn.php' for inclusion (include_path='.:/opt/php56/lib/php') in /home2/sreecorp/public_html/bb/user/search.php on line 2
+[29-Mar-2020 12:06:04 America/Chicago] PHP Warning:  include(conn.php): failed to open stream: No such file or directory in /home2/sreecorp/public_html/bb/user/search.php on line 2
+[29-Mar-2020 12:06:04 America/Chicago] PHP Warning:  include(conn.php): failed to open stream: No such file or directory in /home2/sreecorp/public_html/bb/user/search.php on line 2
+[29-Mar-2020 12:06:04 America/Chicago] PHP Warning:  include(): Failed opening 'conn.php' for inclusion (include_path='.:/opt/php56/lib/php') in /home2/sreecorp/public_html/bb/user/search.php on line 2
+[01-Apr-2020 00:14:43 America/Chicago] PHP Parse error:  syntax error, unexpected '' (T_ENCAPSED_AND_WHITESPACE), expecting identifier (T_STRING) or variable (T_VARIABLE) or number (T_NUM_STRING) in /home2/sreecorp/public_html/bb/user/payment.php on line 184
+[02-Apr-2020 02:41:43 America/Chicago] PHP Parse error:  syntax error, unexpected '?' in /home2/sreecorp/public_html/bb/user/payment.php on line 109
+[02-Apr-2020 13:57:32 Asia/Kolkata] PHP Fatal error:  Cannot use object of type mysqli_result as array in /home2/sreecorp/public_html/bb/user/payment.php on line 245
+[02-Apr-2020 14:04:37 Asia/Kolkata] PHP Warning:  array_sum() expects parameter 1 to be array, string given in /home2/sreecorp/public_html/bb/user/payment.php on line 248
+[02-Apr-2020 03:35:15 America/Chicago] PHP Parse error:  syntax error, unexpected '.0' (T_DNUMBER) in /home2/sreecorp/public_html/bb/user/payment.php on line 244
+[02-Apr-2020 14:05:30 Asia/Kolkata] PHP Warning:  array_sum() expects parameter 1 to be array, string given in /home2/sreecorp/public_html/bb/user/payment.php on line 246
+[02-Apr-2020 14:06:09 Asia/Kolkata] PHP Warning:  array_sum() expects parameter 1 to be array, string given in /home2/sreecorp/public_html/bb/user/payment.php on line 246
+[02-Apr-2020 14:06:12 Asia/Kolkata] PHP Warning:  array_sum() expects parameter 1 to be array, string given in /home2/sreecorp/public_html/bb/user/payment.php on line 246
+[02-Apr-2020 14:06:47 Asia/Kolkata] PHP Warning:  array_sum() expects parameter 1 to be array, string given in /home2/sreecorp/public_html/bb/user/payment.php on line 247
+[02-Apr-2020 14:11:03 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home2/sreecorp/public_html/bb/user/payment.php on line 27
+[02-Apr-2020 14:11:03 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home2/sreecorp/public_html/bb/user/payment.php on line 37
+[02-Apr-2020 14:12:04 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home2/sreecorp/public_html/bb/user/payment.php on line 33
+[02-Apr-2020 14:12:04 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home2/sreecorp/public_html/bb/user/payment.php on line 43
+[02-Apr-2020 15:04:28 Asia/Kolkata] PHP Warning:  mysqli_query(): Empty query in /home2/sreecorp/public_html/bb/user/payment.php on line 31
+[02-Apr-2020 15:11:25 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, array given in /home2/sreecorp/public_html/bb/user/payment.php on line 284
+[02-Apr-2020 04:56:25 America/Chicago] PHP Parse error:  syntax error, unexpected '=' in /home2/sreecorp/public_html/bb/user/payment.php on line 71
+[02-Apr-2020 15:26:44 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home2/sreecorp/public_html/bb/user/payment.php on line 74
+[02-Apr-2020 16:27:54 Asia/Kolkata] PHP Warning:  move_uploaded_file(http://sreecorp.com/bb/user_paymentsdownloaddfd.jpg/5e85c53280808_103650_1585825074.jpg): failed to open stream: HTTP wrapper does not support writeable connections in /home2/sreecorp/public_html/bb/user/payment.php on line 31
+[02-Apr-2020 16:27:54 Asia/Kolkata] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpcsGwpV' to 'http://sreecorp.com/bb/user_paymentsdownloaddfd.jpg/5e85c53280808_103650_1585825074.jpg' in /home2/sreecorp/public_html/bb/user/payment.php on line 31
+[02-Apr-2020 16:30:22 Asia/Kolkata] PHP Warning:  move_uploaded_file(http://sreecorp.com/bb/user_payments/downloaddfd.jpg5e85c5c62d0ca_103650_1585825222.jpg): failed to open stream: HTTP wrapper does not support writeable connections in /home2/sreecorp/public_html/bb/user/payment.php on line 31
+[02-Apr-2020 16:30:22 Asia/Kolkata] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpcCPJBc' to 'http://sreecorp.com/bb/user_payments/downloaddfd.jpg5e85c5c62d0ca_103650_1585825222.jpg' in /home2/sreecorp/public_html/bb/user/payment.php on line 31
+[02-Apr-2020 16:35:11 Asia/Kolkata] PHP Warning:  move_uploaded_file(http://sreecorp.com/bb/user_payments/downloaddfd.jpg): failed to open stream: HTTP wrapper does not support writeable connections in /home2/sreecorp/public_html/bb/user/payment.php on line 40
+[02-Apr-2020 16:35:11 Asia/Kolkata] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpi4zodC' to 'http://sreecorp.com/bb/user_payments/downloaddfd.jpg' in /home2/sreecorp/public_html/bb/user/payment.php on line 40
+[02-Apr-2020 16:36:10 Asia/Kolkata] PHP Warning:  move_uploaded_file(http://sreecorp.com/bb/user_payments/downloaddfd.jpg): failed to open stream: HTTP wrapper does not support writeable connections in /home2/sreecorp/public_html/bb/user/payment.php on line 40
+[02-Apr-2020 16:36:10 Asia/Kolkata] PHP Warning:  move_uploaded_file(): Unable to move '/tmp/phpt47itn' to 'http://sreecorp.com/bb/user_payments/downloaddfd.jpg' in /home2/sreecorp/public_html/bb/user/payment.php on line 40
+[02-Apr-2020 21:23:22 Asia/Kolkata] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 10
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'month' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 131
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'extra_amount' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 132
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'payment_date' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 133
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'paid_amount' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 134
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'payment_proof_attach' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 135
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'month' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 131
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'extra_amount' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 132
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'payment_date' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 133
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'paid_amount' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 134
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'payment_proof_attach' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 135
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'month' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 131
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'extra_amount' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 132
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'payment_date' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 133
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'paid_amount' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 134
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'payment_proof_attach' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 135
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'month' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 131
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'extra_amount' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 132
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'payment_date' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 133
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'paid_amount' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 134
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'payment_proof_attach' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 135
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'month' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 131
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'extra_amount' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 132
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'payment_date' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 133
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'paid_amount' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 134
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'payment_proof_attach' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 135
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'month' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 131
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'extra_amount' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 132
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'payment_date' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 133
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'paid_amount' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 134
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'payment_proof_attach' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 135
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'month' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 131
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'extra_amount' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 132
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'payment_date' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 133
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'paid_amount' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 134
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'payment_proof_attach' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 135
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'month' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 131
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'extra_amount' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 132
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'payment_date' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 133
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'paid_amount' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 134
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'payment_proof_attach' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 135
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'month' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 131
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'extra_amount' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 132
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'payment_date' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 133
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'paid_amount' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 134
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'payment_proof_attach' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 135
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'month' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 131
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'extra_amount' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 132
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'payment_date' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 133
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'paid_amount' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 134
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'payment_proof_attach' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 135
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'month' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 131
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'extra_amount' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 132
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'payment_date' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 133
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'paid_amount' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 134
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'payment_proof_attach' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 135
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'month' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 131
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'extra_amount' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 132
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'payment_date' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 133
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'paid_amount' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 134
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'payment_proof_attach' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 135
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'month' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 131
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'extra_amount' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 132
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'payment_date' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 133
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'paid_amount' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 134
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'payment_proof_attach' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 135
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'month' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 131
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'extra_amount' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 132
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'payment_date' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 133
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'paid_amount' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 134
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'payment_proof_attach' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 135
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'month' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 131
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'extra_amount' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 132
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'payment_date' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 133
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'paid_amount' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 134
+[02-Apr-2020 21:42:55 Asia/Kolkata] PHP Warning:  Illegal string offset 'payment_proof_attach' in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 135
+[02-Apr-2020 23:55:38 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home2/sreecorp/public_html/bb/user/payment.php on line 94
+[02-Apr-2020 23:55:55 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home2/sreecorp/public_html/bb/user/payment.php on line 94
+[03-Apr-2020 00:02:49 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home2/sreecorp/public_html/bb/user/payment.php on line 213
+[03-Apr-2020 00:02:49 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home2/sreecorp/public_html/bb/user/payment.php on line 215
+[03-Apr-2020 00:02:49 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home2/sreecorp/public_html/bb/user/payment.php on line 217
+[03-Apr-2020 00:02:49 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home2/sreecorp/public_html/bb/user/payment.php on line 219
+[03-Apr-2020 00:02:49 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home2/sreecorp/public_html/bb/user/payment.php on line 221
+[03-Apr-2020 00:02:49 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home2/sreecorp/public_html/bb/user/payment.php on line 223
+[03-Apr-2020 00:02:49 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home2/sreecorp/public_html/bb/user/payment.php on line 225
+[03-Apr-2020 00:02:49 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home2/sreecorp/public_html/bb/user/payment.php on line 227
+[03-Apr-2020 00:02:49 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home2/sreecorp/public_html/bb/user/payment.php on line 229
+[03-Apr-2020 00:02:49 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home2/sreecorp/public_html/bb/user/payment.php on line 231
+[03-Apr-2020 00:02:49 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home2/sreecorp/public_html/bb/user/payment.php on line 233
+[03-Apr-2020 00:02:49 Asia/Kolkata] PHP Warning:  in_array() expects parameter 2 to be array, string given in /home2/sreecorp/public_html/bb/user/payment.php on line 235
+[02-Apr-2020 13:34:38 America/Chicago] PHP Parse error:  syntax error, unexpected '"feb"' (T_CONSTANT_ENCAPSED_STRING) in /home2/sreecorp/public_html/bb/user/payment.php on line 215
+[02-Apr-2020 13:34:54 America/Chicago] PHP Parse error:  syntax error, unexpected ';' in /home2/sreecorp/public_html/bb/user/payment.php on line 215
+[03-Apr-2020 00:26:42 America/Chicago] PHP Parse error:  syntax error, unexpected ';' in /home2/sreecorp/public_html/bb/user/payment.php on line 198
+[03-Apr-2020 13:38:17 Asia/Kolkata] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 12
+[03-Apr-2020 08:59:07 America/Chicago] PHP Parse error:  syntax error, unexpected 'content' (T_STRING) in /home2/sreecorp/public_html/bb/user/payment.php on line 168
+[03-Apr-2020 08:59:29 America/Chicago] PHP Parse error:  syntax error, unexpected 'content' (T_STRING) in /home2/sreecorp/public_html/bb/user/payment.php on line 168
