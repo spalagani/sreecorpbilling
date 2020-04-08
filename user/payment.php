@@ -46,6 +46,7 @@ if(!empty($_POST['submit'])) {
         'payment_mode' => !empty($_POST['payment_type']) ? trim(strip_tags($_POST['payment_type'])):0,
         'payment_proof_attach' => $file_name,
         'payment_date' => date('Y-m-d H:i:s'),
+        'branch_name' => !empty($_POST['branch_name']) ? $_POST['branch_name']:'',
         'status'=> 1
     );
     
@@ -54,8 +55,8 @@ if(!empty($_POST['submit'])) {
         if($i > 0) {
             $data['extra_amount'] = 0;
         }
-        $sql_insert = "INSERT INTO `payments` (operator_id, user_id, collectionagent_id, year, package_id, month, amount, extra_amount, remarks, paid_amount, payment_mode, payment_proof_attach, payment_date, status)
-            VALUES (".$data['operator_id'].", ".$data['user_id'].",".$data['collectionagent_id'].", ".$data['year'].", ".$data['package_id'].", '".$_POST['month'][$i]."',  ".$data['amount'].", ".$data['extra_amount'].", '".$data['remarks']."', ".$data['paid_amount'].",".$data['payment_mode'].",'".$data['payment_proof_attach']."','".$data['payment_date']."', ".$data['status'].")";
+        $sql_insert = "INSERT INTO `payments` (operator_id, user_id, collectionagent_id, year, package_id, month, amount, extra_amount, remarks, paid_amount, payment_mode, payment_proof_attach, payment_date, status,branch_name)
+            VALUES (".$data['operator_id'].", ".$data['user_id'].",".$data['collectionagent_id'].", ".$data['year'].", ".$data['package_id'].", '".$_POST['month'][$i]."',  ".$data['amount'].", ".$data['extra_amount'].", '".$data['remarks']."', ".$data['paid_amount'].",".$data['payment_mode'].",'".$data['payment_proof_attach']."','".$data['payment_date']."', ".$data['status'].", '".$data['branch_name']."')";
         
             if (mysqli_query($conn, $sql_insert)) {
                 $counter++;
@@ -76,7 +77,7 @@ if(!empty($_POST['submit'])) {
 
 $finalArr = array();
 if (!empty($searchTerm)) {
-	$sql = "SELECT * FROM `SreeBroadband_Users` WHERE `id`=".$searchTerm;
+	$sql = "SELECT `SreeBroadband_Users`.* FROM `SreeBroadband_Users` WHERE `id` = ".$searchTerm;
 	$result = mysqli_query($conn, $sql);
 	$finalArr = array();
 	if (mysqli_num_rows($result) > 0) {
@@ -152,7 +153,8 @@ while($r = mysqli_fetch_assoc($payments_result)) {
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
- <?php include("../header.php");
+ <?php 
+    include("../header.php");
     include("../aside.php");
  ?>
   
@@ -176,9 +178,8 @@ while($r = mysqli_fetch_assoc($payments_result)) {
                   <select class="form-control" name="year" required id="select_year">
                     <option value="">Select Year</option>
 
-	                    <?php 
+	                      <?php 
                             $currentYear = date('Y');
-                            
                             for($i = $currentYear-5; $i<=$currentYear+5; $i++) { 
                                 if($getYear == $i) {
                             ?>
@@ -219,9 +220,7 @@ while($r = mysqli_fetch_assoc($payments_result)) {
                   (If Paid - we need to disable check box with checked symbol)
                 <?php } else { ?>
                     <?php
-                    
                       $month = array_unique($month); ?>
-
                       <input type="checkbox" <?php echo (in_array("jan",$month)) ? 'checked disabled':'';  ?> id="month_check" name="month[]" data-month_count="<?php echo count($month); ?>" value="jan">
                       <label for="Jan">Jan</label>
                       <input type="checkbox" <?php echo (in_array("feb",$month)) ? 'checked disabled':'';  ?> id="month_check" name="month[]" data-month_count="<?php echo count($month); ?>" value="feb">
@@ -259,6 +258,7 @@ while($r = mysqli_fetch_assoc($payments_result)) {
                   <input type="text" class="form-control" name="amount_paid" id="amount_paid" placeholder="Paying Amount" onkeypress="return isNumberKey(event,this)" value="<?php echo !empty($package_arr['package_price'])?round($package_arr['package_price'],2):0; ?>" required> (Here we need to show the amount as per the package and out standing)
                 </div>
                 <input type="hidden" name="package_id" value="<?php echo !empty($package_arr['package_id'])?$package_arr['package_id']:0; ?>">
+                <input type="hidden" name="branch_name" value="<?php echo !empty($finalArr['Branch'])?$finalArr['Branch']:''; ?>">
                 <input type="hidden" name="package_amount" value="<?php echo !empty($package_arr['package_price'])?$package_arr['package_price']:0; ?>">
                 <input type="hidden" name="username" value="<?php echo !empty($package_arr['Username'])?$package_arr['Username']:0; ?>">
                 <div class="form-group">
@@ -278,14 +278,14 @@ while($r = mysqli_fetch_assoc($payments_result)) {
                 <div class="form-group">
                   <label for="">Collection Agent Name</label>
                   <select class="form-control" name="agent" required>
-                    <option value="">Select option</option
+                    <option value="">Select option</option>
                     <?php 
                     
                     // Agents
                     $agent_sql = "SELECT * FROM `collectionagents`";
                     $agent_result = mysqli_query($conn, $agent_sql);
                     if (mysqli_num_rows($agent_result) > 0) {
-			         while($row_agent = mysqli_fetch_assoc($agent_result)) {  ?>
+			             while($row_agent = mysqli_fetch_assoc($agent_result)) {  ?>
 			            <option value="<?php echo $row_agent['ca_id']; ?>"><?php echo $row_agent['employee_name']; ?></option>
 		            <?php } }?>
                   </select>
@@ -405,11 +405,18 @@ while($r = mysqli_fetch_assoc($payments_result)) {
 <script src="<?php echo $serverurl ?>dist/js/demo.js"></script>
 <script type="text/javascript">
 let localurl = "<?php echo $serverurl.'user/payment.php?id='.$searchTerm ?>";
+$(document).ready(function() {
+  var date = new Date();
+  var today = new Date(date.getFullYear(), date.getMonth(), date.getDate());
+  var end = new Date(date.getFullYear(), date.getMonth(), date.getDate());
     //Date picker
     $('#datepicker').datepicker({
-      autoclose: true
+      autoclose: true,
+      format: "mm/dd/yyyy",
+      todayHighlight: true,
     });
-
+    $('#datepicker').datepicker('setDate', today);
+});
 function isNumberKey(evt, element) {
   var charCode = (evt.which) ? evt.which : event.keyCode
   if (charCode > 31 && (charCode < 48 || charCode > 57) && !(charCode == 46 || charCode == 8))

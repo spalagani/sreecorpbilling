@@ -51,7 +51,7 @@
           </a>
           <ul class="treeview-menu">
             <li ><a href="<?php echo $serverurl ?>user/add-user.php"><i class="fa fa-plus"></i> Add User</a></li>
-            <li><a href="#"><i class="fa fa-upload"></i> Upload Users list</a></li>
+            <li><a href="<?php echo $serverurl ?>user/user_bulk.php"><i class="fa fa-upload"></i> Upload Users list</a></li>
             <li><a href="<?php echo $serverurl ?>user/view.php"><i class="fa fa-check"></i> View Users</a></li>
             <li><a href="#"><i class="fa fa-search"></i> Search Users</a></li>
           </ul>
@@ -93,14 +93,16 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li ><a href="<?php echo $serverurl ?>user/user-search.php"><i class="fa fa-search"></i> Search Users</a></li>
-            <li ><a href="<?php echo $serverurl ?>payment/user-payment-history.php"><i class="fa fa-search"></i>User Payment Histroy</a></li>
+            <li ><a href="<?php echo $serverurl ?>user/user-search.php"><i class="fa fa-search"></i>Make Payment</a></li>
+          <!--  <li ><a href="<?php echo $serverurl ?>payment/user-payment-history.php"><i class="fa fa-search"></i>User Payment Histroy</a></li>
             
             <li><a href="<?php echo $serverurl ?>view.php?list=payments"><i class="fa fa-list"></i> List Paid/Unpaid Users</a></li>
            <li ><a href="<?php echo $serverurl ?>view.php?list=payments"><i class="fa fa-search"></i> Search Paid/Unpaid Users</a></li>
            <li ><a href="<?php echo $serverurl ?>view.php?list=payments"><i class="fa fa-search"></i> Search Paid/Unpaid Users by year</a></li>
-           <li ><a href="<?php echo $serverurl ?>payment/pay-search.php"><i class="fa fa-search"></i> Search Payments</a></li>
             <li><a href="<?php echo $serverurl ?>view.php?list=payments"><i class="fa fa-mobile"></i> Send SMS to User</a></li>
+           -->
+           <li ><a href="<?php echo $serverurl ?>payment/pay-search.php"><i class="fa fa-search"></i> Search Payments</a></li>
+           
           </ul>
         </li>
 

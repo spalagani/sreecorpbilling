@@ -125,3 +125,29 @@
 [03-Apr-2020 13:38:17 Asia/Kolkata] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home2/sreecorp/public_html/bb/user/user-payment-history.php on line 12
 [03-Apr-2020 08:59:07 America/Chicago] PHP Parse error:  syntax error, unexpected 'content' (T_STRING) in /home2/sreecorp/public_html/bb/user/payment.php on line 168
 [03-Apr-2020 08:59:29 America/Chicago] PHP Parse error:  syntax error, unexpected 'content' (T_STRING) in /home2/sreecorp/public_html/bb/user/payment.php on line 168
+[04-Apr-2020 17:37:28 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/sreecorp/public_html/bb/head.php:10) in /home2/sreecorp/public_html/bb/user/invoice.php on line 19
+[04-Apr-2020 17:40:00 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/sreecorp/public_html/bb/head.php:10) in /home2/sreecorp/public_html/bb/user/invoice.php on line 30
+[04-Apr-2020 17:41:23 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/sreecorp/public_html/bb/head.php:10) in /home2/sreecorp/public_html/bb/user/invoice.php on line 30
+[04-Apr-2020 17:42:04 Asia/Kolkata] PHP Warning:  Cannot modify header information - headers already sent by (output started at /home2/sreecorp/public_html/bb/head.php:10) in /home2/sreecorp/public_html/bb/user/invoice.php on line 30
+[04-Apr-2020 18:22:31 Asia/Kolkata] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home2/sreecorp/public_html/bb/user/invoice.php on line 25
+[04-Apr-2020 18:23:12 Asia/Kolkata] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home2/sreecorp/public_html/bb/user/invoice.php on line 25
+[04-Apr-2020 18:25:54 Asia/Kolkata] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home2/sreecorp/public_html/bb/user/invoice.php on line 25
+[06-Apr-2020 19:50:28 Asia/Kolkata] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home2/sreecorp/public_html/bb/user/payment.php on line 83
+[06-Apr-2020 19:50:28 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home2/sreecorp/public_html/bb/user/payment.php on line 97
+[06-Apr-2020 19:59:40 Asia/Kolkata] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home2/sreecorp/public_html/bb/user/payment.php on line 83
+[06-Apr-2020 19:59:40 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home2/sreecorp/public_html/bb/user/payment.php on line 97
+[06-Apr-2020 19:59:43 Asia/Kolkata] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home2/sreecorp/public_html/bb/user/payment.php on line 83
+[06-Apr-2020 19:59:43 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home2/sreecorp/public_html/bb/user/payment.php on line 97
+[06-Apr-2020 20:00:00 Asia/Kolkata] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home2/sreecorp/public_html/bb/user/payment.php on line 83
+[06-Apr-2020 20:00:00 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home2/sreecorp/public_html/bb/user/payment.php on line 97
+[06-Apr-2020 20:00:28 Asia/Kolkata] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home2/sreecorp/public_html/bb/user/payment.php on line 83
+[06-Apr-2020 20:00:28 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home2/sreecorp/public_html/bb/user/payment.php on line 97
+[06-Apr-2020 20:02:51 Asia/Kolkata] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home2/sreecorp/public_html/bb/user/payment.php on line 83
+[06-Apr-2020 20:02:51 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home2/sreecorp/public_html/bb/user/payment.php on line 97
+[06-Apr-2020 20:02:51 Asia/Kolkata] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home2/sreecorp/public_html/bb/user/payment.php on line 83
+[06-Apr-2020 20:02:51 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home2/sreecorp/public_html/bb/user/payment.php on line 97
+[06-Apr-2020 20:02:52 Asia/Kolkata] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home2/sreecorp/public_html/bb/user/payment.php on line 83
+[06-Apr-2020 20:02:52 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home2/sreecorp/public_html/bb/user/payment.php on line 97
+[06-Apr-2020 20:03:32 Asia/Kolkata] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home2/sreecorp/public_html/bb/user/payment.php on line 85
+[06-Apr-2020 20:03:32 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home2/sreecorp/public_html/bb/user/payment.php on line 99
+[07-Apr-2020 17:26:35 Asia/Kolkata] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home2/sreecorp/public_html/bb/user/invoice.php on line 45

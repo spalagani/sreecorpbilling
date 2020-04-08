@@ -1,7 +1,5 @@
 <?php
-
-
-	$servername = "localhost";
+$servername = "localhost";
 $username = "sreecorp_root";
 $password = "test123";
 $db="sreecorp_bb";

@@ -105,6 +105,18 @@ include("../aside.php");
                   <label for="exampleInputEmail1">Address</label>
                   <textarea class="form-control" placeholder="Address"></textarea>
                 </div>
+                 <div class="form-group">
+                  <label for="exampleInputEmail1">Aadhar No</label>
+                   <input type="text" class="form-control"  id="exampleInputEmail1" placeholder="Aadhar No">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Mobile No</label>
+                   <input type="text" class="form-control"  id="exampleInputEmail1" placeholder="Mobile No">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Alt Mobile No</label>
+                   <input type="text" class="form-control"  id="exampleInputEmail1" placeholder="Alt Mobile No">
+                </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Package</label>
                  <select class="form-control">
@@ -123,15 +135,19 @@ include("../aside.php");
                   <label for="exampleInputEmail1">Password</label>
                   <input type="password" class="form-control"  id="exampleInputEmail1" placeholder="Operator Password">
                 </div>
-                 <div class="form-group">
-                  <label for="exampleInputEmail1">Confirm Password</label>
-                  <input type="password" class="form-control"  id="exampleInputEmail1" placeholder="Operator confirm Password">
-                </div>
+                
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Onusrino</label>
+                  <label for="exampleInputEmail1">ONU Serial No</label>
                   <input type="email" class="form-control"  id="exampleInputEmail1" placeholder="Onusrino">
                 </div>
+                
+                <div class="form-group">
+                  <label for="exampleInputFile">Upload Application</label>
+                  <input type="file" id="exampleInputFile">
 
+                  <p class="help-block">&nbsp;</p>
+                </div>
+                
                 <div class="form-group">
                   <label for="exampleInputFile">User Photo</label>
                   <input type="file" id="exampleInputFile">

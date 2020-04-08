@@ -66,6 +66,7 @@ include("../aside.php");
                   <th>Mobile Number</th>
                   <th>Address</th>
                   <th>Registered Date</th>
+                   <th>Edit User</th>
                   <th>View User</th>
                   <th>Send SMS</th>
                 </tr>
@@ -79,6 +80,7 @@ include("../aside.php");
                   <td>9985234595</td>
                   <td>#7-4, Main Road, Tadepalli</td>
                   <td>Feb 2015</td>
+                  <td><a href="">Edit User</a></td>
                   <td><a href="view-user.php">View User</a></td>
                   <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
                 Send SMS
@@ -92,6 +94,7 @@ include("../aside.php");
                   <td></td>
                   <td>#7-4, Main Road, Tadepalli</td>
                   <td>Feb 2015</td>
+                  <td><a href="">Edit User</a></td>
                   <td><a href="view-user.php">View User</a></td>
                   <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
                 Send SMS
@@ -105,6 +108,7 @@ include("../aside.php");
                   <td>9985234595</td>
                   <td>#7-4, Main Road, Tadepalli</td>
                   <td>Feb 2015</td>
+                  <td><a href="">Edit User</a></td>
                   <td><a href="view-user.php">View User</a></td>
                   <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
                 Send SMS
@@ -120,6 +124,7 @@ include("../aside.php");
                   <th>Mobile Number</th>
                   <th>Address</th>
                   <th>Registered Date</th>
+                  <th>Edit User</th>
                   <th>View User</th>
                   <th>Send SMS</th>
                 </tr>

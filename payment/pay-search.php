@@ -1,6 +1,61 @@
 <?php
+ob_start();
 include("../valid.php");
-include("../head.php"); 
+include("../head.php");
+if(!empty($_POST)) {
+    $agent = (isset($_POST['agent'])?$_POST['agent'] : '');
+    $branch = (isset($_POST['branch'])?$_POST['branch'] : '');
+    $start = (isset($_POST['start_date'])? date('Y-m-d', strtotime($_POST['start'])) : '');
+    $end = (isset($_POST['end'])? date('Y-m-d', strtotime($_POST['end'])) : '');
+    
+    $search_url = $serverurl.'payment/user-payment-list.php?';
+    if(!empty($_POST['agent'])) {
+        $search_url .= "agent=".$_POST['agent'];
+    }
+    if(!empty($_POST['branch'])) {
+        $search_url .= "&branch=".$_POST['branch'];
+    }
+    if(!empty($_POST['start_date'])) {
+        $search_url .= "&start_date=".date('Y-m-d',strtotime($_POST['start_date']));
+    }
+    if(!empty($_POST['end_date'])) {
+        $search_url .= "&end_date=".date('Y-m-d',strtotime($_POST['end_date']));
+    }
+    if(!empty($_POST['payment_mode'])) {
+        $search_url .= "&payment_mode=".$_POST['payment_mode'];
+    }
+    header("location:".$search_url); die();
+}
+
+
+$sql = "select * from `collectionagents`";
+$result_agent = mysqli_query($conn, $sql);
+$agentArr = array();
+if (mysqli_num_rows($result_agent) > 0) {
+        while($row = mysqli_fetch_assoc($result_agent)) {
+            array_push($agentArr,$row);
+        }
+}
+
+$sql1 = "select * from `branchs`";
+$result_branch = mysqli_query($conn, $sql1);
+$branchArr = array();
+if (mysqli_num_rows($result_branch) > 0) {
+        while($row = mysqli_fetch_assoc($result_branch)) {
+            array_push($branchArr,$row);
+        }
+}
+
+
+// payment modes
+$paymentArr = array();
+$sql_payment_mode = "SELECT * FROM `payment_modes` WHERE `is_active` = '1'";
+$payment_result = mysqli_query($conn, $sql_payment_mode);
+  if (mysqli_num_rows($payment_result) > 0) {
+    while($row = mysqli_fetch_assoc($payment_result)) {
+      array_push($paymentArr,$row);
+    }
+  }
 ?>
 <!DOCTYPE html>
 <html>
@@ -44,10 +99,10 @@ include("../head.php");
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
- <?php include("../header.php");
-include("../aside.php");
-
-  ?>
+<?php 
+ include("../header.php");
+ include("../aside.php");
+?>
   
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -67,46 +122,63 @@ include("../aside.php");
           <!-- general form elements -->
           <div class="box box-primary">
             
-            <form role="form">
+            <form role="form" action="" method="POST">
               <div class="box-body">
                 <div class="form-group">
-                  <label for="exampleInputEmail1">Collection Agent</label>
-                 <select class="form-control">
-                    <option>option 1</option>
-                    <option>option 2</option>
-                    <option>option 3</option>
-                    <option>option 4</option>
-                    <option>option 5</option>
+                  <label for="">Collection Agent</label>
+                 <select class="form-control" name="agent">
+                     <option value="">All</option>
+                     
+                     <?php if(!empty($agentArr)) { 
+                        foreach($agentArr as $agent) {
+                     ?>
+                        <option value="<?php echo $agent['ca_id']; ?>"><?php echo $agent['employee_name']; ?></option>
+                    <?php } } ?>
                   </select>
                 </div>
-                 <div class="form-group">
-                  <label for="exampleInputEmail1">Branch</label>
-                 <select class="form-control">
-                    <option>option 1</option>
-                    <option>option 2</option>
-                    <option>option 3</option>
-                    <option>option 4</option>
-                    <option>option 5</option>
+                <div class="form-group">
+                  <label>Branch</label>
+                 <select class="form-control" name="branch">
+                     <option value="">All</option>
+                     
+                    <?php if(!empty($branchArr)) { 
+                        foreach($branchArr as $branch) {
+                    ?>
+                    
+                    <option value="<?php echo $branch['bid']; ?>"><?php echo $branch['branch_name']; ?></option>
+                    
+                    <?php } }?>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label>Payment Mode</label>
+                 <select class="form-control" name="payment_mode">
+                     <option value="">All</option>
+                     
+                    <?php if(!empty($paymentArr)) { 
+                        foreach($paymentArr as $payment) {
+                    ?>
+                    
+                    <option value="<?php echo $payment['id']; ?>"><?php echo $payment['payment_type']; ?></option>
+                    
+                    <?php } }?>
                   </select>
                 </div>
                 <div class="form-group">
                   <label for="exampleInputEmail1">Start Date</label>
-                  <input type="email" class="form-control"  id="exampleInputEmail1" placeholder="Operator Username">
+                  <input id="start_date" name="start_date" type="text" class="form-control" placeholder="Start date" required>
                 </div>
               
                 <div class="form-group">
-                  <label for="exampleInputEmail1">End Date</label>
-                  <input type="email" class="form-control"  id="exampleInputEmail1" placeholder="Operator Username">
+                  <label>End Date</label>
+                  <input id="end_date" name="end_date" type="text" class="form-control" placeholder="End date" required>
                 </div>
-
-               
-
-               
               </div>
               <!-- /.box-body -->
 
               <div class="box-footer">
-                <button type="submit" class="btn btn-primary">Search</button>
+                <input type="submit" nam="submit" value="Search" class="btn btn-primary">
               </div>
             </form>
           </div>
@@ -146,15 +218,16 @@ include("../aside.php");
 <script>
   $(function () {
 
-       $('#datepicker').datepicker({
+    $('#start_date,#end_date').datepicker({
       autoclose: true
     })
-          $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+    
+    $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
       checkboxClass: 'icheckbox_minimal-blue',
       radioClass   : 'iradio_minimal-blue'
     })
 
-            $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+    $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
       checkboxClass: 'icheckbox_minimal-red',
       radioClass   : 'iradio_minimal-red'
     })

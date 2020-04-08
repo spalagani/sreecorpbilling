@@ -14,7 +14,7 @@ if(!empty($searchTerm)) {
         }
     }
     
-    // echo "<pre>"; print_r($finalArr); die;
+    $invoiceUrl = $serverurl.'user/invoice.php?id='.$searchTerm;
 }
 
 
@@ -67,13 +67,15 @@ include("../aside.php");
   ?>
   
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>
-       User Payment History
-       
-      </h1>
-    
+      <div class="row">
+        <div class="col-md-10">
+          <h3>User Payment History</h3>
+        </div>
+        <div class="col-md-2">
+          <a style="margin-top: 15px" href="<?php echo $serverurl.'user/payment.php?id='.$searchTerm; ?>" class="btn btn-primary pull-right">Back</a>
+        </div>
+      </div>
     </section>
 
     <!-- Main content -->
@@ -118,13 +120,13 @@ include("../aside.php");
                       <table id="example1" class="table table-bordered table-striped">
                         <thead>
                         <tr>
-                          <th>Select</th>
                           <th>Month</th>
                           <th>Paid / Unpaid</th>
                           <th>Paid Date</th>
                           <th>Amount Paid</th>
                           <th>Payment Mode</th>
-                          <th>Invoice Download</th>
+                          <th>Receipt</th>
+                          <th>Download Invoice</th>
                           <th>Send SMS Notification</th>
                           
                         </tr>
@@ -132,13 +134,13 @@ include("../aside.php");
                         <tbody>
                             <?php foreach($finalArr as $value) { ?>
                                 <tr>
-                                  <td><input type="checkbox" class="btn btn-primary"></input></td>
                                   <td><?php echo ucwords($value['month']); ?></td>
                                  <td><?php if($value['extra_amount'] >=0) { echo "Paid"; } else { echo "Partially paid"; } ?></td>
                                   <td><?php echo date('d/m/Y', strtotime($value['payment_date'])); ?></td>
                                   <td><?php echo $value['paid_amount']; ?></td>
                                   <td><?php echo $value['payment_type']; ?></td>
-                                  <td><a download href="<?php echo $serverurl."user_payments/".$value['payment_proof_attach']; ?>" class="btn btn-primary">Download Invoice</a></td>
+                                  <td><a download href="<?php echo $serverurl.'user_payments/'.$value['payment_proof_attach']; ?>" class="btn btn-primary">Receipt</a></td>
+                                  <td><a data-link="<?php echo $invoiceUrl.'&year='.$value['year'].'&month='.$value['month'].'&operator_id='.$value['operator_id']; ?>" class="btn btn-primary downloadInv">Download Invoice</a></td>
                                   <td><a href="#" class="btn btn-primary">Send SMS Notification</a></td>
                                 </tr>
                         <?php } ?>
@@ -202,7 +204,7 @@ include("../aside.php");
       radioClass   : 'iradio_minimal-blue'
     })
 
-            $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+    $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
       checkboxClass: 'icheckbox_minimal-red',
       radioClass   : 'iradio_minimal-red'
     })
@@ -213,5 +215,17 @@ include("../aside.php");
     })
 
 
-});
-    </script>
+  });
+
+  $(".downloadInv").click(function() {
+      let link = $(this).attr('data-link');
+      download(link);
+  });
+    function download(link){
+      var popout = window.open(link);
+      window.setTimeout(function(){
+         popout.close();
+      }, 3500);
+    }
+
+</script>
