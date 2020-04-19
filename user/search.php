@@ -5,7 +5,7 @@ $searchTerm = $_GET['term'];
 $searchCategory = $_GET['category'];
 
 if (!empty($searchTerm) && !empty($searchCategory)) {
-	$sql = "SELECT id,  `".$searchCategory."` FROM SreeBroadband_Users WHERE `".$searchCategory."` LIKE '%".$searchTerm."%'";
+	$sql = "SELECT id,  `".$searchCategory."` FROM customers WHERE `".$searchCategory."` LIKE '%".$searchTerm."%'";
 	$result = mysqli_query($conn, $sql);
 	$finalArr = array();
 	if (mysqli_num_rows($result) > 0) {

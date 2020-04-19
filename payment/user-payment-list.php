@@ -9,7 +9,7 @@ $end_date = isset($_GET['end_date'])?$_GET['end_date'].' 23:59:59':'';
 $payment_mode = isset($_GET['payment_mode'])?$_GET['payment_mode']:'';
 
 $sql = '';
- $sql .= "select p.*, su.Name, pm.payment_type, ca.employee_name, ca.operator_id as `operatorid` from payments as p left join `SreeBroadband_Users` as su on su.Id = p.user_id left join `branchs` as b on b.branch_name = p.branch_name LEFT JOIN `payment_modes` AS pm ON pm.id = p.payment_mode LEFT JOIN `collectionagents` as ca ON ca.ca_id = p.`collectionagent_id` where ";
+ $sql .= "select p.*, su.Name, pm.payment_type, ca.employee_name, ca.operator_id as `operatorid` from payments as p left join `customers` as su on su.Id = p.user_id left join `branchs` as b on b.branch_name = p.branch_name LEFT JOIN `payment_modes` AS pm ON pm.id = p.payment_mode LEFT JOIN `collectionagents` as ca ON ca.ca_id = p.`collectionagent_id` where ";
 if (!empty($start_date) && !empty($end_date)) {
     $sql .= " p.payment_date between '".$start_date."' and '".$end_date."' ";
 } else {

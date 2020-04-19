@@ -33,7 +33,7 @@ if(!empty($_POST['submit'])) {
     $monthCount = count($_POST['month']);
     $extra_amount = trim($_POST['amount_paid']) - trim($_POST['package_amount'])*$monthCount;
     $data = array(
-        'operator_id' => 1, 
+        'operator_id' => !empty($_POST['operator_id']) ? trim(strip_tags($_POST['operator_id'])):0, 
         'user_id' => !empty($searchTerm) ? trim(strip_tags($searchTerm)):0,    
         'collectionagent_id' => !empty($_POST['agent']) ? trim(strip_tags($_POST['agent'])):0,    
         'year' => !empty($_POST['year']) ? trim(strip_tags($_POST['year'])):date('Y'),    
@@ -77,7 +77,7 @@ if(!empty($_POST['submit'])) {
 
 $finalArr = array();
 if (!empty($searchTerm)) {
-	$sql = "SELECT `SreeBroadband_Users`.* FROM `SreeBroadband_Users` WHERE `id` = ".$searchTerm;
+	$sql = "SELECT `customers`.* FROM `customers` WHERE `id` = ".$searchTerm;
 	$result = mysqli_query($conn, $sql);
 	$finalArr = array();
 	if (mysqli_num_rows($result) > 0) {
@@ -92,7 +92,7 @@ $sql_payment_mode = "SELECT * FROM `payment_modes` WHERE `is_active` = '1'";
 $payment_result = mysqli_query($conn, $sql_payment_mode);
 
 // package type
-$sql_package_type = "SELECT `pk`.*, `su`.Username FROM `packages` AS `pk` LEFT JOIN `SreeBroadband_Users` AS `su` ON `su`.`Package_Name` = `pk`.`package_name` WHERE `su`.`id` =".$searchTerm;
+$sql_package_type = "SELECT `pk`.*, `su`.Username FROM `packages` AS `pk` LEFT JOIN `customers` AS `su` ON `su`.`Package_Name` = `pk`.`package_name` WHERE `su`.`id` =".$searchTerm;
 $package_type_result = mysqli_query($conn, $sql_package_type);
 $package_arr = mysqli_fetch_assoc($package_type_result);
 
@@ -258,6 +258,7 @@ while($r = mysqli_fetch_assoc($payments_result)) {
                   <input type="text" class="form-control" name="amount_paid" id="amount_paid" placeholder="Paying Amount" onkeypress="return isNumberKey(event,this)" value="<?php echo !empty($package_arr['package_price'])?round($package_arr['package_price'],2):0; ?>" required> (Here we need to show the amount as per the package and out standing)
                 </div>
                 <input type="hidden" name="package_id" value="<?php echo !empty($package_arr['package_id'])?$package_arr['package_id']:0; ?>">
+                <input type="hidden" name="operator_id" value="<?php echo !empty($finalArr['operator_id'])?$finalArr['operator_id']:''; ?>">
                 <input type="hidden" name="branch_name" value="<?php echo !empty($finalArr['Branch'])?$finalArr['Branch']:''; ?>">
                 <input type="hidden" name="package_amount" value="<?php echo !empty($package_arr['package_price'])?$package_arr['package_price']:0; ?>">
                 <input type="hidden" name="username" value="<?php echo !empty($package_arr['Username'])?$package_arr['Username']:0; ?>">

@@ -10,7 +10,7 @@ include("head.php");
 
 <?php include("aside.php");
 
-$sql = "select * from users";
+$sql = "select * from customers where operator_id = '1'";
   $rs = mysqli_query($conn,$sql);
   $rno = mysqli_num_rows($rs);
  ?>

@@ -5,7 +5,7 @@ include("../head.php");
 $searchTerm = $_GET['id'];
 $finalArr = array();
 if (!empty($searchTerm)) {
-	$sql = "SELECT * FROM `SreeBroadband_Users` WHERE `id`=".$searchTerm;
+	$sql = "SELECT * FROM `customers` WHERE `id`=".$searchTerm;
 	$result = mysqli_query($conn, $sql);
 	$finalArr = array();
 	if (mysqli_num_rows($result) > 0) {
@@ -129,13 +129,13 @@ if (!empty($searchTerm)) {
                                                         </ul>
                                                     </div>
                                                     <div class="row">
-                                                        <div class="col-md-4"></div>
-                                                        <div class="col-md-4 text-center">
+                                                        <div class="col-md-2"></div>
+                                                        <div class="col-md-8 text-center">
                                                             <a href="<?php echo $serverurl.'user/payment.php?id='.$searchTerm; ?>" style="text-align:center;" class="btn btn-primary">Pay</a>
-                                                            <a href="<?php echo $serverurl."user/user-payment-history.php?id=$searchTerm "; ?>" style="text-align:center;" class="btn btn-primary">Payment History</a>
+                                                            <a href="<?php echo $serverurl."user/user-payment-history.php?id=$searchTerm"; ?>" style="text-align:center;" class="btn btn-primary">Payment History</a>
+                                                            <a href="<?php echo $serverurl."user/view-user.php?id=$searchTerm"; ?>" style="text-align:center;" class="btn btn-primary">View Complete Details</a>
                                                         </div>
-
-                                                        <div class="col-md-4"></div>
+                                                        <div class="col-md-2"></div>
                                                     </div>
                                                 </div>
 

@@ -13,7 +13,7 @@ $operatorArr = array();
 
 $invoiceId = $totalPaid = '';
 if (!empty($searchTerm) && !empty($year) && !empty($month)) {
-	$sql = "SELECT * FROM `SreeBroadband_Users` WHERE `id`=".$searchTerm;
+	$sql = "SELECT * FROM `customers` WHERE `id`=".$searchTerm;
 	$result = mysqli_query($conn, $sql);
 	$finalArr = array();
 	if (mysqli_num_rows($result) > 0) {

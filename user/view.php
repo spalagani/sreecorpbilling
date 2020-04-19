@@ -25,8 +25,6 @@ include("../head.php");
 
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo $serverurl ?>dist/css/AdminLTE.min.css">
-  <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
   <link rel="stylesheet" href="<?php echo $serverurl ?>dist/css/skins/_all-skins.min.css">
 
 
@@ -49,121 +47,61 @@ include("../aside.php");
 
   ?>
   
-  <div class="content-wrapper">
+<div class="content-wrapper">
   <div class="box">
-            <div class="box-header">
-              <h3 class="box-title">Data Table With Full Features</h3>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-              <table id="example1" class="table table-bordered table-striped">
-                <thead>
-                <tr>
-                  <th>Username</th>
-                  <th>Name</th>
-                  <th>Branch</th>
-                  <th>Package</th>
-                  <th>Mobile Number</th>
-                  <th>Address</th>
-                  <th>Registered Date</th>
-                   <th>Edit User</th>
-                  <th>View User</th>
-                  <th>Send SMS</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-                  <td>9246402455</td>
-                  <td>Srikanth Palagani</td>
-                  <td>Undavalli</td>
-                  <td>30Mbps 400 GB FUP</td>
-                  <td>9985234595</td>
-                  <td>#7-4, Main Road, Tadepalli</td>
-                  <td>Feb 2015</td>
-                  <td><a href="">Edit User</a></td>
-                  <td><a href="view-user.php">View User</a></td>
-                  <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
-                Send SMS
-              </button></td>
-                </tr>
-                <tr>
-                  <td>9985234595</td>
-                  <td>Palagani</td>
-                  <td>Tadepalli</td>
-                  <td>30Mbps 400 GB FUP</td>
-                  <td></td>
-                  <td>#7-4, Main Road, Tadepalli</td>
-                  <td>Feb 2015</td>
-                  <td><a href="">Edit User</a></td>
-                  <td><a href="view-user.php">View User</a></td>
-                  <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
-                Send SMS
-              </button></td>
-                </tr>
-                <tr>
-                  <td>9246402455</td>
-                  <td>Srikanth</td>
-                  <td>Bi-Pass</td>
-                  <td>30Mbps 400 GB FUP</td>
-                  <td>9985234595</td>
-                  <td>#7-4, Main Road, Tadepalli</td>
-                  <td>Feb 2015</td>
-                  <td><a href="">Edit User</a></td>
-                  <td><a href="view-user.php">View User</a></td>
-                  <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">
-                Send SMS
-              </button></td>
-                </tr>
-                </tbody>
-                <tfoot>
-                <tr>
-                  <th>Username</th>
-                  <th>Name</th>
-                  <th>Branch</th>
-                  <th>Package</th>
-                  <th>Mobile Number</th>
-                  <th>Address</th>
-                  <th>Registered Date</th>
-                  <th>Edit User</th>
-                  <th>View User</th>
-                  <th>Send SMS</th>
-                </tr>
-              </table>
-            </div>
-            <!-- /.box-body -->
-          </div>
-          <!-- /.box -->
-             <div class="modal fade" id="modal-default">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title">Default Modal</h4>
-              </div>
-              <div class="modal-body">
-                <p>One fine body&hellip;</p>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default pull-left" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-primary">Save changes</button>
-              </div>
-            </div>
-            <!-- /.modal-content -->
-          </div>
-          <!-- /.modal-dialog -->
-        </div>
-        <!-- /.modal -->
+    <div class="box-header">
+      <h3 class="box-title">Customer List</h3>
+    </div>
+    <div class="box-body">
+      <div class="table-responsive">
+      <table id="example1" class="table table-bordered table-striped">
+        <thead>
+        <tr>
+          <th>Username</th>
+          <th>Name</th>
+          <th>Branch</th>
+          <th>Package</th>
+          <th>Mobile Number</th>
+          <th>Address</th>
+          <th>Registered Date</th>
+          <th>View User</th>
+          <th>Edit User</th>
+          <th>Other details</th>
+          <th>Send SMS</th>
+        </tr>
+        </thead>
+        <tbody>
+        <?php 
+          $sql = "SELECT * FROM `customers` order by id desc";
+          $res = mysqli_query($conn,$sql);
+          if (mysqli_num_rows($res) > 0) {
+              while ($row = mysqli_fetch_assoc($res)) { ?>
+                  <tr>
+                    <td><?php echo !empty($row['Username'])?$row['Username']:''; ?></td>
+                    <td><?php echo !empty($row['Name'])?$row['Name']:''; ?></td>
+                    <td><?php echo !empty($row['Branch'])?$row['Branch']:''; ?></td>
+                    <td><?php echo !empty($row['Package_Name'])?$row['Package_Name']:''; ?></td>
+                    <td><?php echo !empty($row['Mobile'])?$row['Mobile']:''; ?></td>
+                    <td><?php echo !empty($row['Installation_Address'])?$row['Installation_Address']:''; ?></td>
+                    <td><?php echo !empty($row['Date_Added'])?date('Y-m-d',strtotime($row['Date_Added'])):''; ?></td>
+                    <td><a href="view-user.php?id=<?php echo $row['Id']; ?>">View User</a></td>
+                    <td><a href="editUser.php?id=<?php echo $row['Id']; ?>">Edit User</a></td>
+                    <td><a href="editOtherDetails.php?id=<?php echo $row['Id']; ?>">Other Details</a></td>
+                    <td><button type="button" class="btn btn-default" data-toggle="modal" data-target="#modal-default">Send SMS</button></td>
+                  </tr>
+
+          <?php } } else { ?>
+
+          <?php } ?>
+        </tbody>
+      </table>
+    </div>
+    </div>
   </div>
+</div>
       
-      
- <?php include("../footer.php") ?>
+<?php include("../footer.php") ?>
 
- 
-
-<!-- ./wrapper -->
-
-<!-- jQuery 3 -->
 <script src="<?php echo $serverurl ?>bower_components/jquery/dist/jquery.min.js"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?php echo $serverurl ?>bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
@@ -184,15 +122,7 @@ include("../aside.php");
 <script src="<?php echo $serverurl ?>dist/js/demo.js"></script>
 <script>
   $(function () {
-    $('#example1').DataTable()
-    $('#example2').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : false,
-      'ordering'    : true,
-      'info'        : true,
-      'autoWidth'   : false
-    })
+    $('#example1').DataTable();
   })
 </script>
 

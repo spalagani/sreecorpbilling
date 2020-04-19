@@ -25,7 +25,7 @@ if(isset($_POST['logflag']) && $_POST['logflag'] == 'y' ){
       setcookie('lpass', null, -1, '/');
   }
 
-$sql = "select * from SreeBroadband_Users where username='".$_POST['username']."' and username='".$_POST['password']."'";
+$sql = "select * from loginusers where lu_username='".$_POST['username']."' and lu_password='".$_POST['password']."'";
   $rs = mysqli_query($conn,$sql);
   $rno = mysqli_num_rows($rs);
     
@@ -33,7 +33,8 @@ $sql = "select * from SreeBroadband_Users where username='".$_POST['username']."
   {
     $row = $rs->fetch_array(MYSQLI_ASSOC);
     $_SESSION['user']=$row;
-        
+    $_SESSION['lu_role']=$row["lu_role"];
+    $_SESSION['lu_id']=$row["lu_id"];
     header("location:index.php");
     exit;
   }
@@ -121,11 +122,12 @@ $sql = "select * from SreeBroadband_Users where username='".$_POST['username']."
         <!-- /.col -->
       </div><input type="hidden" name="logflag" value="y">
     </form>
-
+<!--
 
     <a href="forgot-password.php">I forgot my password</a><br>
     <a href="register.php" class="text-center">Register a new membership</a>
-
+    
+-->
   </div>
   <!-- /.login-box-body -->
 </div>

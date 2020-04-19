@@ -151,3 +151,71 @@
 [06-Apr-2020 20:03:32 Asia/Kolkata] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home2/sreecorp/public_html/bb/user/payment.php on line 85
 [06-Apr-2020 20:03:32 Asia/Kolkata] PHP Warning:  mysqli_fetch_assoc() expects parameter 1 to be mysqli_result, boolean given in /home2/sreecorp/public_html/bb/user/payment.php on line 99
 [07-Apr-2020 17:26:35 Asia/Kolkata] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, boolean given in /home2/sreecorp/public_html/bb/user/invoice.php on line 45
+[18-Apr-2020 14:39:39 Asia/Kolkata] PHP Notice:  Undefined index: Outage in /home2/sreecorp/public_html/bb/user/user_process.php on line 203
+[18-Apr-2020 14:39:39 Asia/Kolkata] PHP Notice:  Undefined index: Account_Type in /home2/sreecorp/public_html/bb/user/user_process.php on line 204
+[18-Apr-2020 14:39:39 Asia/Kolkata] PHP Notice:  Undefined index: Franchise_Name in /home2/sreecorp/public_html/bb/user/user_process.php on line 205
+[18-Apr-2020 14:39:39 Asia/Kolkata] PHP Notice:  Undefined index: MAC in /home2/sreecorp/public_html/bb/user/user_process.php on line 206
+[18-Apr-2020 14:39:39 Asia/Kolkata] PHP Notice:  Undefined index: Sub_Package in /home2/sreecorp/public_html/bb/user/user_process.php on line 207
+[18-Apr-2020 14:39:39 Asia/Kolkata] PHP Notice:  Undefined index: IpAddress in /home2/sreecorp/public_html/bb/user/user_process.php on line 208
+[18-Apr-2020 14:39:39 Asia/Kolkata] PHP Notice:  Undefined index: Expiry_Date in /home2/sreecorp/public_html/bb/user/user_process.php on line 209
+[18-Apr-2020 14:39:39 Asia/Kolkata] PHP Notice:  Undefined index: Last_Renewal in /home2/sreecorp/public_html/bb/user/user_process.php on line 210
+[18-Apr-2020 14:39:39 Asia/Kolkata] PHP Notice:  Undefined index: FUP_Limit in /home2/sreecorp/public_html/bb/user/user_process.php on line 211
+[18-Apr-2020 14:39:39 Asia/Kolkata] PHP Notice:  Undefined index: Area in /home2/sreecorp/public_html/bb/user/user_process.php on line 212
+[18-Apr-2020 14:39:39 Asia/Kolkata] PHP Notice:  Undefined index: Colony in /home2/sreecorp/public_html/bb/user/user_process.php on line 213
+[18-Apr-2020 14:39:39 Asia/Kolkata] PHP Notice:  Undefined index: Building in /home2/sreecorp/public_html/bb/user/user_process.php on line 214
+[18-Apr-2020 14:39:39 Asia/Kolkata] PHP Notice:  Undefined index: Node in /home2/sreecorp/public_html/bb/user/user_process.php on line 215
+[18-Apr-2020 14:39:39 Asia/Kolkata] PHP Notice:  Undefined index: Pop in /home2/sreecorp/public_html/bb/user/user_process.php on line 216
+[18-Apr-2020 14:39:39 Asia/Kolkata] PHP Notice:  Undefined index: Switch in /home2/sreecorp/public_html/bb/user/user_process.php on line 217
+[18-Apr-2020 14:39:39 Asia/Kolkata] PHP Notice:  Undefined index: Door_No in /home2/sreecorp/public_html/bb/user/user_process.php on line 218
+[18-Apr-2020 14:39:39 Asia/Kolkata] PHP Notice:  Undefined index: Billing_Address in /home2/sreecorp/public_html/bb/user/user_process.php on line 219
+[18-Apr-2020 14:39:39 Asia/Kolkata] PHP Notice:  Undefined index: GSTIN in /home2/sreecorp/public_html/bb/user/user_process.php on line 220
+[18-Apr-2020 14:39:39 Asia/Kolkata] PHP Notice:  Undefined index: NAS_IP in /home2/sreecorp/public_html/bb/user/user_process.php on line 221
+[18-Apr-2020 14:39:39 Asia/Kolkata] PHP Notice:  Undefined index: POP_Tech_Exe in /home2/sreecorp/public_html/bb/user/user_process.php on line 222
+[18-Apr-2020 14:39:39 Asia/Kolkata] PHP Notice:  Undefined index: POP_Coll_Exe in /home2/sreecorp/public_html/bb/user/user_process.php on line 223
+[18-Apr-2020 14:39:39 Asia/Kolkata] PHP Notice:  Undefined index: Last_Payment_Source in /home2/sreecorp/public_html/bb/user/user_process.php on line 224
+[18-Apr-2020 14:39:39 Asia/Kolkata] PHP Notice:  Undefined index: Balance_Amount in /home2/sreecorp/public_html/bb/user/user_process.php on line 225
+[18-Apr-2020 14:39:39 Asia/Kolkata] PHP Notice:  Undefined index: Nas_Port_Id in /home2/sreecorp/public_html/bb/user/user_process.php on line 227
+[18-Apr-2020 14:39:39 Asia/Kolkata] PHP Notice:  Undefined index: Spl_Discount in /home2/sreecorp/public_html/bb/user/user_process.php on line 228
+[18-Apr-2020 14:39:39 Asia/Kolkata] PHP Notice:  Undefined index: Add_Charges in /home2/sreecorp/public_html/bb/user/user_process.php on line 229
+[18-Apr-2020 14:39:39 Asia/Kolkata] PHP Notice:  Undefined index: Latitude in /home2/sreecorp/public_html/bb/user/user_process.php on line 230
+[18-Apr-2020 14:39:39 Asia/Kolkata] PHP Notice:  Undefined index: Longitude in /home2/sreecorp/public_html/bb/user/user_process.php on line 231
+[18-Apr-2020 14:39:39 Asia/Kolkata] PHP Notice:  Undefined index: Auto_Renew in /home2/sreecorp/public_html/bb/user/user_process.php on line 232
+[18-Apr-2020 14:39:39 Asia/Kolkata] PHP Notice:  Undefined index: Connection_Type in /home2/sreecorp/public_html/bb/user/user_process.php on line 233
+[18-Apr-2020 14:57:13 Asia/Kolkata] PHP Notice:  Undefined index: Outage in /home2/sreecorp/public_html/bb/user/user_process.php on line 203
+[18-Apr-2020 14:57:13 Asia/Kolkata] PHP Notice:  Undefined index: Account_Type in /home2/sreecorp/public_html/bb/user/user_process.php on line 204
+[18-Apr-2020 14:57:13 Asia/Kolkata] PHP Notice:  Undefined index: Franchise_Name in /home2/sreecorp/public_html/bb/user/user_process.php on line 205
+[18-Apr-2020 14:57:13 Asia/Kolkata] PHP Notice:  Undefined index: MAC in /home2/sreecorp/public_html/bb/user/user_process.php on line 206
+[18-Apr-2020 14:57:13 Asia/Kolkata] PHP Notice:  Undefined index: Sub_Package in /home2/sreecorp/public_html/bb/user/user_process.php on line 207
+[18-Apr-2020 14:57:13 Asia/Kolkata] PHP Notice:  Undefined index: IpAddress in /home2/sreecorp/public_html/bb/user/user_process.php on line 208
+[18-Apr-2020 14:57:13 Asia/Kolkata] PHP Notice:  Undefined index: Expiry_Date in /home2/sreecorp/public_html/bb/user/user_process.php on line 209
+[18-Apr-2020 14:57:13 Asia/Kolkata] PHP Notice:  Undefined index: Last_Renewal in /home2/sreecorp/public_html/bb/user/user_process.php on line 210
+[18-Apr-2020 14:57:13 Asia/Kolkata] PHP Notice:  Undefined index: FUP_Limit in /home2/sreecorp/public_html/bb/user/user_process.php on line 211
+[18-Apr-2020 14:57:13 Asia/Kolkata] PHP Notice:  Undefined index: Area in /home2/sreecorp/public_html/bb/user/user_process.php on line 212
+[18-Apr-2020 14:57:13 Asia/Kolkata] PHP Notice:  Undefined index: Colony in /home2/sreecorp/public_html/bb/user/user_process.php on line 213
+[18-Apr-2020 14:57:13 Asia/Kolkata] PHP Notice:  Undefined index: Building in /home2/sreecorp/public_html/bb/user/user_process.php on line 214
+[18-Apr-2020 14:57:13 Asia/Kolkata] PHP Notice:  Undefined index: Node in /home2/sreecorp/public_html/bb/user/user_process.php on line 215
+[18-Apr-2020 14:57:13 Asia/Kolkata] PHP Notice:  Undefined index: Pop in /home2/sreecorp/public_html/bb/user/user_process.php on line 216
+[18-Apr-2020 14:57:13 Asia/Kolkata] PHP Notice:  Undefined index: Switch in /home2/sreecorp/public_html/bb/user/user_process.php on line 217
+[18-Apr-2020 14:57:13 Asia/Kolkata] PHP Notice:  Undefined index: Door_No in /home2/sreecorp/public_html/bb/user/user_process.php on line 218
+[18-Apr-2020 14:57:13 Asia/Kolkata] PHP Notice:  Undefined index: Billing_Address in /home2/sreecorp/public_html/bb/user/user_process.php on line 219
+[18-Apr-2020 14:57:13 Asia/Kolkata] PHP Notice:  Undefined index: GSTIN in /home2/sreecorp/public_html/bb/user/user_process.php on line 220
+[18-Apr-2020 14:57:13 Asia/Kolkata] PHP Notice:  Undefined index: NAS_IP in /home2/sreecorp/public_html/bb/user/user_process.php on line 221
+[18-Apr-2020 14:57:13 Asia/Kolkata] PHP Notice:  Undefined index: POP_Tech_Exe in /home2/sreecorp/public_html/bb/user/user_process.php on line 222
+[18-Apr-2020 14:57:13 Asia/Kolkata] PHP Notice:  Undefined index: POP_Coll_Exe in /home2/sreecorp/public_html/bb/user/user_process.php on line 223
+[18-Apr-2020 14:57:13 Asia/Kolkata] PHP Notice:  Undefined index: Last_Payment_Source in /home2/sreecorp/public_html/bb/user/user_process.php on line 224
+[18-Apr-2020 14:57:13 Asia/Kolkata] PHP Notice:  Undefined index: Balance_Amount in /home2/sreecorp/public_html/bb/user/user_process.php on line 225
+[18-Apr-2020 14:57:13 Asia/Kolkata] PHP Notice:  Undefined index: Nas_Port_Id in /home2/sreecorp/public_html/bb/user/user_process.php on line 227
+[18-Apr-2020 14:57:13 Asia/Kolkata] PHP Notice:  Undefined index: Spl_Discount in /home2/sreecorp/public_html/bb/user/user_process.php on line 228
+[18-Apr-2020 14:57:13 Asia/Kolkata] PHP Notice:  Undefined index: Add_Charges in /home2/sreecorp/public_html/bb/user/user_process.php on line 229
+[18-Apr-2020 14:57:13 Asia/Kolkata] PHP Notice:  Undefined index: Latitude in /home2/sreecorp/public_html/bb/user/user_process.php on line 230
+[18-Apr-2020 14:57:13 Asia/Kolkata] PHP Notice:  Undefined index: Longitude in /home2/sreecorp/public_html/bb/user/user_process.php on line 231
+[18-Apr-2020 14:57:13 Asia/Kolkata] PHP Notice:  Undefined index: Auto_Renew in /home2/sreecorp/public_html/bb/user/user_process.php on line 232
+[18-Apr-2020 14:57:13 Asia/Kolkata] PHP Notice:  Undefined index: Connection_Type in /home2/sreecorp/public_html/bb/user/user_process.php on line 233
+[19-Apr-2020 06:19:22 Asia/Kolkata] PHP Notice:  A session had already been started - ignoring session_start() in /home2/sreecorp/public_html/cms/valid.php on line 3
+[19-Apr-2020 06:19:22 Asia/Kolkata] PHP Notice:  A session had already been started - ignoring session_start() in /home2/sreecorp/public_html/cms/valid.php on line 3
+[19-Apr-2020 06:20:04 Asia/Kolkata] PHP Notice:  A session had already been started - ignoring session_start() in /home2/sreecorp/public_html/cms/valid.php on line 3
+[19-Apr-2020 06:20:04 Asia/Kolkata] PHP Notice:  A session had already been started - ignoring session_start() in /home2/sreecorp/public_html/cms/valid.php on line 3
+[19-Apr-2020 06:20:24 Asia/Kolkata] PHP Notice:  A session had already been started - ignoring session_start() in /home2/sreecorp/public_html/cms/valid.php on line 3
+[19-Apr-2020 06:20:24 Asia/Kolkata] PHP Notice:  A session had already been started - ignoring session_start() in /home2/sreecorp/public_html/cms/valid.php on line 3
+[19-Apr-2020 06:20:57 Asia/Kolkata] PHP Notice:  A session had already been started - ignoring session_start() in /home2/sreecorp/public_html/cms/valid.php on line 3
+[19-Apr-2020 06:20:57 Asia/Kolkata] PHP Notice:  A session had already been started - ignoring session_start() in /home2/sreecorp/public_html/cms/valid.php on line 3

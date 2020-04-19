@@ -224,7 +224,7 @@ include("../aside.php");
     function download(link){
       var popout = window.open(link);
       window.setTimeout(function(){
-         popout.close();
+         //popout.close();
       }, 3500);
     }
 

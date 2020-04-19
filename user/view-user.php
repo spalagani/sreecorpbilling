@@ -1,6 +1,24 @@
 <?php
-include("../valid.php");
-include("../head.php"); 
+  include("../valid.php");
+  include("../head.php");
+  $id  = $_GET['id']; 
+  $sql = "SELECT * FROM `customers` where id = '".$id."' order by id desc";
+  $res = mysqli_query($conn,$sql);
+  $finalArr = array();
+  while ($row = mysqli_fetch_assoc($res)) { 
+    $finalArr = $row;
+  }
+
+  if (!empty($finalArr)) {
+    $keys = array_keys($finalArr);
+    $counter=0;
+    foreach ($finalArr as $value) {
+      if($value == 'null' || $value == null || $value == '') {
+        $finalArr[$keys[$counter]] = '';
+      }
+      $counter++;
+    }
+  }
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,370 +44,259 @@ include("../head.php");
   <!-- Theme style -->
   <link rel="stylesheet" href="<?php echo $serverurl ?>dist/css/AdminLTE.min.css">
   <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-  <link rel="stylesheet" href="<?php echo $serverurl ?>dist/css/skins/_all-skins.min.css">
+   folder instead of downloading all of them to reduce the load. -->
+   <link rel="stylesheet" href="<?php echo $serverurl ?>dist/css/skins/_all-skins.min.css">
 
 
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
   <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
   <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
+<![endif]-->
 
-  <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
+<!-- Google Font -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
+  <div class="wrapper">
 
- <?php include("../header.php");
-include("../aside.php");
+   <?php include("../header.php");
+   include("../aside.php");
 
-  ?>
-  
-  <div class="content-wrapper">
+   ?>
+
+   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1>
-        User Profile
-      </h1>
-      <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li><a href="#">Examples</a></li>
-        <li class="active">User profile</li>
-      </ol>
+      <div class="row">
+        <div class="col-md-6">
+          <h3><?php echo !empty($finalArr['Name'])?ucwords($finalArr['Name']):'';?> User Profile</h3>
+        </div>
+        <div class="col-md-6">
+           <button type="button" class="btn btn-primary pull-right"><a style="color: white" href="<?php echo $serverurl.'user/view.php'; ?>"> Back</a></button>
+        </div>
+      </div>
     </section>
 
     <!-- Main content -->
     <section class="content">
-
       <div class="row">
         <div class="col-md-3">
-
           <!-- Profile Image -->
           <div class="box box-primary">
             <div class="box-body box-profile">
-              <img class="profile-user-img img-responsive img-circle" src="../../dist/img/user4-128x128.jpg" alt="User profile picture">
+              <?php 
+              $profile_img = $serverurl.'dist/img/avatar5.png';
+              if (!empty($finalArr['user_image'])) {
+               $profile_img = $serverurl.'user_images/'.$finalArr['user_image'];
+             }
+             ?>
+             <img class="profile-user-img img-responsive img-rounded" style="max-width: 100px; max-height: 100px;" src="<?php echo $profile_img; ?>" alt="User profile picture">
 
-              <h3 class="profile-username text-center">Nina Mcintire</h3>
+             <h3 class="profile-username text-center"><?php echo !empty($finalArr['Name'])?$finalArr['Name']:''; ?></h3>
+             <ul class="list-group list-group-unbordered">
 
-              <p class="text-muted text-center">Software Engineer</p>
+              <li class="list-group-item" style="padding-bottom: 30px;">
+                <b>Address</b> <a class="pull-right"><?php echo !empty($finalArr['Installation_Address'])?$finalArr['Installation_Address']:''; ?></a>
+              </li>
+              <li class="list-group-item">
+                <b>Phone</b> <a class="pull-right"><?php echo !empty($finalArr['Mobile'])?$finalArr['Mobile']:''; ?></a>
+              </li>
 
-              <ul class="list-group list-group-unbordered">
-                <li class="list-group-item">
-                  <b>Branch</b> <a class="pull-right">Undavalli</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Address</b> <a class="pull-right">#7-4, Main Road, Undavalli</a>
-                </li>
-                <li class="list-group-item">
-                  <b>Phone</b> <a class="pull-right">9246402455</a>
-                </li>
-              </ul> 
-
-            </div>
-            <!-- /.box-body -->
+              <li class="list-group-item">
+                <b>Branch </b> &nbsp;&nbsp;<a style="float: right;"><?php echo !empty($finalArr['Branch'])?$finalArr['Branch']:''; ?></a>
+              </li>
+              <li class="list-group-item">
+                <a href="<?php echo $serverurl.'user/user-payment-history.php?id='.$finalArr['Id']; ?>" class="btn btn-primary btn-block">Payment History</a>
+              </li>
+            </ul> 
           </div>
-       
         </div>
-        <!-- /.col -->
-        <div class="col-md-9">
-          <div class="nav-tabs-custom">
-            <ul class="nav nav-tabs">
-              <li class="active"><a href="#activity" data-toggle="tab">Payment History</a></li>
-              <li><a href="#timeline" data-toggle="tab">Package History</a></li>
-              <li><a href="#settings" data-toggle="tab">Update Profile</a></li>
-            </ul>
-            <div class="tab-content">
-              <div class="active tab-pane" id="activity">
-                <!-- Post -->
-                <div class="post">
-                  <div class="user-block">
-                    <img class="img-circle img-bordered-sm" src="../../dist/img/user1-128x128.jpg" alt="user image">
-                        <span class="username">
-                          <a href="#">Jonathan Burke Jr.</a>
-                          <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
-                        </span>
-                    <span class="description">Shared publicly - 7:30 PM today</span>
-                  </div>
-                  <!-- /.user-block -->
-                  <p>
-                    Lorem ipsum represents a long-held tradition for designers,
-                    typographers and the like. Some people hate it and argue for
-                    its demise, but others ignore the hate as they create awesome
-                    tools to help create filler text for everyone from bacon lovers
-                    to Charlie Sheen fans.
-                  </p>
-                  <ul class="list-inline">
-                    <li><a href="#" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Share</a></li>
-                    <li><a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> Like</a>
-                    </li>
-                    <li class="pull-right">
-                      <a href="#" class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i> Comments
-                        (5)</a></li>
-                  </ul>
 
-                  <input class="form-control input-sm" type="text" placeholder="Type a comment">
+      </div>
+      <!-- /.col -->
+      <div class="col-md-9">
+        <div class="nav-tabs-custom">
+          <ul class="nav nav-tabs">
+            <li class="active"><a href="#activity" data-toggle="tab">Details</a></li>
+            <li class=""><a href="#extraactivity" data-toggle="tab">Extra Details</a></li>
+            <li class=""><a href="#comments" data-toggle="tab">Comments</a></li>
+          </ul>
+          <div class="tab-content">
+            <div class="active tab-pane" id="activity">
+              <div class="post">
+                <div class="row">
+                  <div class="col-md-4"><b>ONU Serial No :</b> <?php echo !empty($finalArr['ONU_Serial_No'])? $finalArr['ONU_Serial_No'] : ''; ?></div>
+                  <div class="col-md-4"><b>CAF No :</b> <?php echo !empty($finalArr['CAF_No'])?$finalArr['CAF_No']:''; ?></div>
+                  <div class="col-md-4"><b>Aadhar No :</b> <?php echo !empty($finalArr['Aadhar_No'])?$finalArr['Aadhar_No']:''; ?></div>
                 </div>
-                <!-- /.post -->
+                <br>
 
-                <!-- Post -->
-                <div class="post clearfix">
-                  <div class="user-block">
-                    <img class="img-circle img-bordered-sm" src="../../dist/img/user7-128x128.jpg" alt="User Image">
-                        <span class="username">
-                          <a href="#">Sarah Ross</a>
-                          <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
-                        </span>
-                    <span class="description">Sent you a message - 3 days ago</span>
-                  </div>
-                  <!-- /.user-block -->
-                  <p>
-                    Lorem ipsum represents a long-held tradition for designers,
-                    typographers and the like. Some people hate it and argue for
-                    its demise, but others ignore the hate as they create awesome
-                    tools to help create filler text for everyone from bacon lovers
-                    to Charlie Sheen fans.
-                  </p>
-
-                  <form class="form-horizontal">
-                    <div class="form-group margin-bottom-none">
-                      <div class="col-sm-9">
-                        <input class="form-control input-sm" placeholder="Response">
-                      </div>
-                      <div class="col-sm-3">
-                        <button type="submit" class="btn btn-danger pull-right btn-block btn-sm">Send</button>
-                      </div>
-                    </div>
-                  </form>
+                <div class="row">
+                  <div class="col-md-4"><b>Alt Mobile :</b> <?php echo !empty($finalArr['Alt_Mobile'])?$finalArr['Alt_Mobile']:''?></div>
+                  <div class="col-md-4"><b>Ip Address :</b> <?php echo !empty($finalArr['IpAddress']) ? $finalArr['IpAddress'] : ''; ?></div>
+                  <div class="col-md-4"><b>Installation Address :</b> <?php echo !empty($finalArr['Installation_Address']) ? $finalArr['Installation_Address'] : ''; ?></div>
+                  
                 </div>
-                <!-- /.post -->
-
-                <!-- Post -->
-                <div class="post">
-                  <div class="user-block">
-                    <img class="img-circle img-bordered-sm" src="../../dist/img/user6-128x128.jpg" alt="User Image">
-                        <span class="username">
-                          <a href="#">Adam Jones</a>
-                          <a href="#" class="pull-right btn-box-tool"><i class="fa fa-times"></i></a>
-                        </span>
-                    <span class="description">Posted 5 photos - 5 days ago</span>
-                  </div>
-                  <!-- /.user-block -->
-                  <div class="row margin-bottom">
-                    <div class="col-sm-6">
-                      <img class="img-responsive" src="../../dist/img/photo1.png" alt="Photo">
+                <br>
+                <div class="row">
+                  <div class="col-md-4"><b>User image :</b> 
+                    <?php if (!empty($finalArr['user_image'])) { ?>
+                      <img class="img-responsive img-rounded" src="<?php echo $serverurl.'user_images/'.$finalArr['user_image']?>" width="68px" height="50px" id= "img1" style="max-width: 68px; max-height: 50px;">
+                      <br>
+                      <a download href="<?php echo $serverurl.'user_images/'.$finalArr['user_image']; ?>" title="">Download</a>
+                    <?php } ?>
                     </div>
-                    <!-- /.col -->
-                    <div class="col-sm-6">
-                      <div class="row">
-                        <div class="col-sm-6">
-                          <img class="img-responsive" src="../../dist/img/photo2.png" alt="Photo">
-                          <br>
-                          <img class="img-responsive" src="../../dist/img/photo3.jpg" alt="Photo">
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-sm-6">
-                          <img class="img-responsive" src="../../dist/img/photo4.jpg" alt="Photo">
-                          <br>
-                          <img class="img-responsive" src="../../dist/img/photo1.png" alt="Photo">
-                        </div>
-                        <!-- /.col -->
-                      </div>
-                      <!-- /.row -->
-                    </div>
-                    <!-- /.col -->
+
+                  <div class="col-md-4"><b>User id proof :</b> 
+                    <?php if ($finalArr['user_id_proof']) { ?>
+                       <img class="img-responsive img-rounded" src="<?php echo $serverurl.'user_proof_images/'.$finalArr['user_id_proof']?>" width="68px" height="50px" id= "img2" style="max-width: 68px; max-height: 50px;">
+                       <br>
+                       <a download href="<?php echo $serverurl.'user_proof_images/'.$finalArr['user_id_proof']; ?>" title="">Download</a>
+                    <?php } ?>
+                   </div>
+                  <div class="col-md-4"><b>User caf image :</b> 
+                    <?php if (!empty($finalArr['user_caf_image'])) { ?>
+                      <img class="img-responsive img-rounded" src="<?php echo $serverurl.'user_caf_images/'.$finalArr['user_caf_image']?>" width="68px" height="50px" id="img3" style="max-width: 68px; max-height: 50px;">
+                      <br>
+                      <a download href="<?php echo $serverurl.'user_caf_images/'.$finalArr['user_caf_image']; ?>" title="">Download</a>
+                    <?php } ?>
                   </div>
-                  <!-- /.row -->
-
-                  <ul class="list-inline">
-                    <li><a href="#" class="link-black text-sm"><i class="fa fa-share margin-r-5"></i> Share</a></li>
-                    <li><a href="#" class="link-black text-sm"><i class="fa fa-thumbs-o-up margin-r-5"></i> Like</a>
-                    </li>
-                    <li class="pull-right">
-                      <a href="#" class="link-black text-sm"><i class="fa fa-comments-o margin-r-5"></i> Comments
-                        (5)</a></li>
-                  </ul>
-
-                  <input class="form-control input-sm" type="text" placeholder="Type a comment">
                 </div>
-                <!-- /.post -->
+
+
               </div>
-              <!-- /.tab-pane -->
-              <div class="tab-pane" id="timeline">
-                <!-- The timeline -->
-                <ul class="timeline timeline-inverse">
-                  <!-- timeline time label -->
-                  <li class="time-label">
-                        <span class="bg-red">
-                          10 Feb. 2014
-                        </span>
-                  </li>
-                  <!-- /.timeline-label -->
-                  <!-- timeline item -->
-                  <li>
-                    <i class="fa fa-envelope bg-blue"></i>
+            </div>
 
-                    <div class="timeline-item">
-                      <span class="time"><i class="fa fa-clock-o"></i> 12:05</span>
-
-                      <h3 class="timeline-header"><a href="#">Support Team</a> sent you an email</h3>
-
-                      <div class="timeline-body">
-                        Etsy doostang zoodles disqus groupon greplin oooj voxy zoodles,
-                        weebly ning heekya handango imeem plugg dopplr jibjab, movity
-                        jajah plickers sifteo edmodo ifttt zimbra. Babblely odeo kaboodle
-                        quora plaxo ideeli hulu weebly balihoo...
-                      </div>
-                      <div class="timeline-footer">
-                        <a class="btn btn-primary btn-xs">Read more</a>
-                        <a class="btn btn-danger btn-xs">Delete</a>
-                      </div>
-                    </div>
-                  </li>
-                  <!-- END timeline item -->
-                  <!-- timeline item -->
-                  <li>
-                    <i class="fa fa-user bg-aqua"></i>
-
-                    <div class="timeline-item">
-                      <span class="time"><i class="fa fa-clock-o"></i> 5 mins ago</span>
-
-                      <h3 class="timeline-header no-border"><a href="#">Sarah Young</a> accepted your friend request
-                      </h3>
-                    </div>
-                  </li>
-                  <!-- END timeline item -->
-                  <!-- timeline item -->
-                  <li>
-                    <i class="fa fa-comments bg-yellow"></i>
-
-                    <div class="timeline-item">
-                      <span class="time"><i class="fa fa-clock-o"></i> 27 mins ago</span>
-
-                      <h3 class="timeline-header"><a href="#">Jay White</a> commented on your post</h3>
-
-                      <div class="timeline-body">
-                        Take me to your leader!
-                        Switzerland is small and neutral!
-                        We are more like Germany, ambitious and misunderstood!
-                      </div>
-                      <div class="timeline-footer">
-                        <a class="btn btn-warning btn-flat btn-xs">View comment</a>
-                      </div>
-                    </div>
-                  </li>
-                  <!-- END timeline item -->
-                  <!-- timeline time label -->
-                  <li class="time-label">
-                        <span class="bg-green">
-                          3 Jan. 2014
-                        </span>
-                  </li>
-                  <!-- /.timeline-label -->
-                  <!-- timeline item -->
-                  <li>
-                    <i class="fa fa-camera bg-purple"></i>
-
-                    <div class="timeline-item">
-                      <span class="time"><i class="fa fa-clock-o"></i> 2 days ago</span>
-
-                      <h3 class="timeline-header"><a href="#">Mina Lee</a> uploaded new photos</h3>
-
-                      <div class="timeline-body">
-                        <img src="http://placehold.it/150x100" alt="..." class="margin">
-                        <img src="http://placehold.it/150x100" alt="..." class="margin">
-                        <img src="http://placehold.it/150x100" alt="..." class="margin">
-                        <img src="http://placehold.it/150x100" alt="..." class="margin">
-                      </div>
-                    </div>
-                  </li>
-                  <!-- END timeline item -->
-                  <li>
-                    <i class="fa fa-clock-o bg-gray"></i>
-                  </li>
-                </ul>
+            <div class="tab-pane" id="extraactivity">
+              <div class="row">
+                  <div class="col-md-4"><b>Outage :</b> <?php echo !empty($finalArr['Outage'])?$finalArr['Outage']:''; ?></div>
+                  <div class="col-md-4"><b>Account Type :</b> <?php echo !empty($finalArr['Account_Type'])?$finalArr['Account_Type']:''; ?></div>
+                  <div class="col-md-4"><b>Franchise Name :</b> <?php echo !empty($finalArr['Franchise_Name'])?$finalArr['Franchise_Name']:''; ?></div>
               </div>
-              <!-- /.tab-pane -->
+              <br>
+              <div class="row">
+                <div class="col-md-4"><b>MAC :</b> <?php echo !empty($finalArr['MAC'])?$finalArr['MAC']:''; ?></div>
+                <div class="col-md-4"><b>Father Name :</b> <?php echo !empty($finalArr['FatherCompany_Name'])?$finalArr['FatherCompany_Name']:''; ?></div>
+                <div class="col-md-4"><b>Last Renewal :</b> <?php echo !empty($finalArr['Last_Renewal'])?$finalArr['Last_Renewal']:''; ?></div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-4"><b>Add Charges:</b> <?php echo !empty($finalArr['Add_Charges'])?$finalArr['Add_Charges']:''; ?></div>
+                <div class="col-md-4"><b>Latitude :</b> <?php echo !empty($finalArr['Latitude'])?$finalArr['Latitude']:''; ?></div>
+                <div class="col-md-4"><b>Longitude :</b> <?php echo !empty($finalArr['Longitude'])?$finalArr['Longitude']:''; ?></div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-4"><b>Sub Package :</b> <?php echo !empty($finalArr['Sub_Package'])?$finalArr['Sub_Package']:''; ?></div>
+                <div class="col-md-4"><b>Expiry Date :</b> <?php echo !empty($finalArr['Expiry_Date'])?$finalArr['Expiry_Date']:''; ?></div>
+                <div class="col-md-4"><b>Spl Discount :</b> <?php echo !empty($finalArr['Spl_Discount'])?$finalArr['Spl_Discount']:''; ?></div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-4"><b>Last Payment Source :</b> <?php echo !empty($finalArr['Last_Payment_Source'])?$finalArr['Last_Payment_Source']:''; ?></div>
+                <div class="col-md-4"><b>Auto Renew :</b> <?php echo !empty($finalArr['Auto_Renew'])?$finalArr['Auto_Renew']:''; ?></div>
+                <div class="col-md-4"><b>Connection Type:</b> <?php echo !empty($finalArr['Connection_Type'])?$finalArr['Connection_Type']:''; ?></div>
+              </div>
+              <br>
+              <div class="row">
+                  
+                  <div class="col-md-4"><b>Balance Amount:</b> <?php echo !empty($finalArr['Balance_Amount'])?$finalArr['Balance_Amount']:''; ?></div>
+                  <div class="col-md-4"><b>Last Logoff :</b> <?php echo !empty($finalArr['Last_Logoff'])?$finalArr['Last_Logoff']:''; ?></div>
+                  <div class="col-md-4"><b>Nas Port Id :</b> <?php echo !empty($finalArr['Nas_Port_Id'])?$finalArr['Nas_Port_Id']:''; ?></div>
+              </div>
+              <br>
+              <div class="row">
+                  <div class="col-md-4"><b>FUP Limit :</b> <?php echo !empty($finalArr['FUP_Limit'])?$finalArr['FUP_Limit']:''; ?></div>
+                  <div class="col-md-4"><b>Area :</b> <?php echo !empty($finalArr['Area'])?$finalArr['Area']:''; ?></div>
+                  <div class="col-md-4"><b>Colony :</b> <?php echo !empty($finalArr['Colony'])?$finalArr['Colony']:''; ?></div>
+              </div>
+              <br>
+              <div class="row">
+                  <div class="col-md-4"><b>Building :</b> <?php echo !empty($finalArr['Building'])?$finalArr['Building']:''; ?></div>
+                  <div class="col-md-4"><b>Node :</b> <?php echo !empty($finalArr['Node'])?$finalArr['Node']:""; ?></div>
+                  <div class="col-md-4"><b>Pop :</b> <?php echo !empty($finalArr['Pop'])?$finalArr['Pop']:""; ?></div>
+                  
+              </div>
+              <br>
+              <div class="row">
+                  <div class="col-md-4"><b>NAS IP :</b> <?php echo !empty($finalArr['NAS_IP'])?$finalArr['NAS_IP']:''; ?></div>
+                  <div class="col-md-4"><b>POP Tech Exe :</b> <?php echo !empty($finalArr['POP_Tech_Exe'])?$finalArr['POP_Tech_Exe']:''; ?></div>
+                  <div class="col-md-4"><b>POP Coll Exe :</b> <?php echo !empty($finalArr['POP_Coll_Exe'])?$finalArr['POP_Coll_Exe']:''; ?></div>
+              </div>
+              <br>
+              <div class="row">
+                <div class="col-md-4"><b>Date Added :</b> <?php echo !empty($finalArr['Date_Added'])?$finalArr['Date_Added']:''; ?></div>
+                <div class="col-md-4"><b>Switch :</b> <?php echo !empty($finalArr['Switch'])?$finalArr['Switch']:''; ?></div>
+                <div class="col-md-4"><b>GSTIN :</b> <?php echo !empty($finalArr['GSTIN'])?$finalArr['GSTIN']:''; ?></div>
+              </div>
+              <br>
 
-              <div class="tab-pane" id="settings">
-                <form class="form-horizontal">
-                  <div class="form-group">
-                    <label for="inputName" class="col-sm-2 control-label">Name</label>
+              <div class="row">
+                <div class="col-md-4"><b>Door No :</b> <?php echo !empty($finalArr['Door_No'])?$finalArr['Door_No']:''; ?></div>
+                <div class="col-md-4"><b>Billing Address :</b> <?php echo !empty($finalArr['Billing_Address'])?$finalArr['Billing_Address']:''; ?></div>
+                
+              </div>
+              <br>
+            </div>
 
-                    <div class="col-sm-10">
-                      <input type="email" class="form-control" id="inputName" placeholder="Name">
+            <div class="tab-pane" id="comments">
+              <div class="row">
+                <form role="form" id="commentForm" method="post" action="">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Operator</label>
+                      <select class="form-control" name="operator_id" id="operator_id" required onchange="getCollectionAgents()">
+                        <option value="">Select Operator</option>
+                        <?php 
+                        $sql_operator = "SELECT * FROM `operators` WHERE `status` = 1";
+                        $operator_result = mysqli_query($conn, $sql_operator);
+                        while($op = mysqli_fetch_assoc($operator_result)) {
+                          ?>
+                          <option value="<?php echo $op['operator_id']; ?>"><?php echo $op['operator_name']; ?></option>
+                        <?php } ?>
+                      </select>
                     </div>
                   </div>
-                  <div class="form-group">
-                    <label for="inputEmail" class="col-sm-2 control-label">Email</label>
-
-                    <div class="col-sm-10">
-                      <input type="email" class="form-control" id="inputEmail" placeholder="Email">
+                  <div class="col-md-6">
+                    <div class="form-group">
+                      <label>Collection Agents</label>
+                      <select class="form-control" name="collectionagent_id" id="collectionagent_id" required>
+                        <option value="">Select Agent</option>
+                      </select>
                     </div>
                   </div>
-                  <div class="form-group">
-                    <label for="inputName" class="col-sm-2 control-label">Name</label>
-
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" id="inputName" placeholder="Name">
+                  <div class="col-md-12">
+                    <div class="form-group">
+                      <label>Comment</label>
+                      <input type="text" name="comment" id="comment" class="form-control" required autocomplete="off">
+                      <input type="hidden" name="user_id" id="user_id" class="form-control" value="<?php echo !empty($_GET['id'])?trim($_GET['id']):''; ?>" required autocomplete="off">
                     </div>
                   </div>
-                  <div class="form-group">
-                    <label for="inputExperience" class="col-sm-2 control-label">Experience</label>
-
-                    <div class="col-sm-10">
-                      <textarea class="form-control" id="inputExperience" placeholder="Experience"></textarea>
-                    </div>
+                  <div class="col-md-2">
+                    <button type="button" class="btn btn-primary btn-block addComment">Add Comment</button>
                   </div>
-                  <div class="form-group">
-                    <label for="inputSkills" class="col-sm-2 control-label">Skills</label>
-
-                    <div class="col-sm-10">
-                      <input type="text" class="form-control" id="inputSkills" placeholder="Skills">
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                      <div class="checkbox">
-                        <label>
-                          <input type="checkbox"> I agree to the <a href="#">terms and conditions</a>
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="form-group">
-                    <div class="col-sm-offset-2 col-sm-10">
-                      <button type="submit" class="btn btn-danger">Submit</button>
-                    </div>
-                  </div>
+                  <div class="col-md-2"></div>
                 </form>
               </div>
-              <!-- /.tab-pane -->
+
+              <hr>
+              <div class="row" style="margin-top: 10px">
+                <div class="commentContainer col-md-12" style="height: 500px; overflow: scroll;">
+                  
+                </div>
+              </div>
             </div>
-            <!-- /.tab-content -->
           </div>
-          <!-- /.nav-tabs-custom -->
         </div>
-        <!-- /.col -->
       </div>
-      <!-- /.row -->
+    </div>
 
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-      
-
-        
-      
- <?php include("../footer.php") ?>
-
- 
-
-<!-- ./wrapper -->
+  </section>
+</div>
+<?php include("../footer.php") ?>
 
 <!-- jQuery 3 -->
 <script src="<?php echo $serverurl ?>bower_components/jquery/dist/jquery.min.js"></script>
@@ -410,26 +317,147 @@ include("../aside.php");
 </body>
 </html>
 <script>
-  $(function () {
+  var user_id = "<?php echo isset($_GET['id'])?$_GET['id']:''; ?>";
+$(function () {
 
-       $('#datepicker').datepicker({
+    $('#datepicker').datepicker({
       autoclose: true
-    })
-          $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+    });
+    $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
       checkboxClass: 'icheckbox_minimal-blue',
       radioClass   : 'iradio_minimal-blue'
-    })
+    });
 
-            $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+    $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
       checkboxClass: 'icheckbox_minimal-red',
       radioClass   : 'iradio_minimal-red'
-    })
+    });
     //Flat red color scheme for iCheck
     $('input[type="checkbox"].flat-red, input[type="radio"].flat-red').iCheck({
       checkboxClass: 'icheckbox_flat-green',
       radioClass   : 'iradio_flat-green'
-    })
-
+    });
 
 });
-    </script>
+
+
+  function getCollectionAgents(){
+    let operator = $('#operator_id').val();
+    if(operator){
+      $.ajax({
+        type:'POST',
+        url :'user_process.php',
+        data:'act=getCollectionAgents&operator_id='+operator,
+        dataType:'HTML',
+            success:function(response){
+             var data = JSON.parse(response);
+              if(data.status){
+                let htmlpackage = ''; let counter = 0;
+                htmlpackage += '<option value="">Select Agent</option>';
+                $(data.collectionAgents).each(function(i,v) {
+                  htmlpackage += '<option value="'+v.ca_id+'">'+v.employee_name+'</option>';
+                  counter++;
+                });
+
+                if (counter > 0) {
+                  $('#collectionagent_id').html(htmlpackage);
+                }
+              } else {
+                alert('Failed to fetch branch and packages');
+              }
+
+            }
+        }); 
+    }
+  }
+
+  $('.addComment').click(function(e) {
+
+     if($("#operator_id").val() == '') {
+      alert('Please select operator');
+      e.preventDefault();
+     }
+     else if($("#collectionagent_id").val() == '') {
+      alert('Please select agent');
+      e.preventDefault();
+     }
+     else if($("#comment").val() == '') {
+      alert('Comment is required');
+      e.preventDefault();
+     } else {
+         let formData = $('#commentForm').serializeArray();
+         formData.push({ name : 'act', value : 'saveComment'});
+          $.ajax({
+            type:'POST',
+            url :'user_process.php',
+            data:formData,
+            dataType:'json',
+                success:function(response){
+                 if (response) {
+                  if (response.status) {
+                      $('#commentForm').trigger("reset");
+                      getallComments();
+                  }
+                  else {
+                    alert(response.message);
+                  }
+                 }
+                }
+            }); 
+         e.preventDefault();
+     }
+  });
+
+  $().ready(function() {
+      getallComments();
+
+      $('#comment').keypress(function (event) {
+          if (event.keyCode === 10 || event.keyCode === 13) {
+              if ($(this).val()) {
+                $('.addComment').trigger('click');
+              }
+              event.preventDefault();
+          }
+      });
+  });
+  function getallComments() {
+    if (user_id) {
+        $.ajax({
+          type:'POST',
+          url :'user_process.php',
+          data:'act=viewComments&user_id='+user_id,
+          dataType:'json',
+            success:function(response){
+              if (response) {
+                if (response.status == true) {
+                  let html = ''; let counter=0;
+                  $(response.details).each(function(i,v) {
+                      html += '<div class="post">';
+                        html += '<div class="post clearfix">';
+                          html += '<div class="">';
+                            html += '<span class="username">';
+                              html += '<a href="javascript::void(0)"><p><span style="font-size:18px">'+v.employee_name+'</span> ('+v.operator_name+')</p>';
+                              html += '<small class="text-muted pull-right"><i class="fa fa-clock-o"></i>'+v.comment_date+'</small>';
+                              html += '</a>';
+                            html += '</span>';
+                          html += '</div>';
+                          html += '<p>'+v.comment+'</p>';
+                        html += '</div>';
+                      html += '</div>';
+                      counter++;
+                  });
+
+                  if(counter>0) {
+                    $('.commentContainer').html(html);
+                  }
+                }
+
+                if (response.nodata) {
+                  $('.commentContainer').html(response.message);
+                }
+              }
+            }
+        });
+    }
+  }
+</script>

@@ -1,19 +1,23 @@
+<?php
+  include("loginUserDetails.php");
+?>
+
   <aside class="main-sidebar">
     <!-- sidebar: style can be found in sidebar.less -->
     <section class="sidebar">
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="<?php echo $serverurl ?>dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <img src="<?php echo $serverurl ?>dist/img/avatar5.png" class="img-circle" alt="User Image">
         </div>
         <div class="pull-left info">
-          <p>Alexander Pierce</p>
+          <p><?php echo $row5['lu_name']; ?></p>
           <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
         </div>
       </div>
   
       <ul class="sidebar-menu" data-widget="tree">
-        
+        <?php if($row5['lu_role'] == 1){ ?>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-dashboard"></i> <span>Operator Management</span>
@@ -27,7 +31,9 @@
             <li><a href="#"><i class="fa fa-search"></i> Search Operator</a></li>
           </ul>
         </li>
+        <?php } ?>
         
+        <?php if($row5['lu_role'] == 1){ ?>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-money"></i> <span>Branch Management</span>
@@ -41,7 +47,9 @@
           
           </ul>
         </li>
-
+        <?php } ?>
+        
+        <?php if($row5['lu_role'] == 3 || $row5['lu_role'] == 1 || $row5['lu_role'] == 4){ ?>
         <li class="treeview">
           <a href="#">
             <i class="fa fa-group"></i> <span>Users Management</span>
@@ -51,26 +59,33 @@
           </a>
           <ul class="treeview-menu">
             <li ><a href="<?php echo $serverurl ?>user/add-user.php"><i class="fa fa-plus"></i> Add User</a></li>
+         <?php if($row5['lu_role'] == 1){ ?>
+
             <li><a href="<?php echo $serverurl ?>user/user_bulk.php"><i class="fa fa-upload"></i> Upload Users list</a></li>
             <li><a href="<?php echo $serverurl ?>user/view.php"><i class="fa fa-check"></i> View Users</a></li>
-            <li><a href="#"><i class="fa fa-search"></i> Search Users</a></li>
+        <?php } ?>
+            <li><a href="<?php echo $serverurl ?>user/user-search.php"><i class="fa fa-search"></i> Search Users</a></li>
           </ul>
         </li>
+        <?php } ?>
 
-
+        <?php if($row5['lu_role'] == 1){ ?>
         <li class="treeview">
           <a href="#">
-            <i class="fa fa-user-circle-o"></i> <span>Collection Boys Management</span>
+            <i class="fa fa-user-circle-o"></i> <span>Employee  Management</span>
             <span class="pull-right-container">
               <i class="fa fa-angle-left pull-right"></i>
             </span>
           </a>
           <ul class="treeview-menu">
-            <li ><a href="<?php echo $serverurl ?>collection-boy/add-collection-boy.php"><i class="fa fa-plus"></i> Add Collection Boy</a></li>
-            <li><a href="<?php echo $serverurl ?>view.php?list=collection-boy"><i class="fa fa-check"></i> View Collection Boy</a></li>
+            <li ><a href="<?php echo $serverurl ?>collection-boy/add-collection-boy.php"><i class="fa fa-plus"></i> Add Employee</a></li>
+            <li><a href="<?php echo $serverurl ?>view.php?list=collection-boy"><i class="fa fa-check"></i> View Employee</a></li>
           </ul>
         </li>
-
+        <?php } ?>
+        
+        
+        <?php if($row5['lu_role'] == 1){ ?>
            <li class="treeview">
           <a href="#">
             <i class="fa fa-square"></i> <span>Packages Management</span>
@@ -83,8 +98,10 @@
             <li><a href="<?php echo $serverurl ?>view.php?list=package"><i class="fa fa-check"></i> View Packages</a></li>
           </ul>
         </li>
-
-
+        <?php } ?>
+        
+        
+        <?php if($row5['lu_role'] == 1 || $row5['lu_role'] == 4){ ?>
          <li class="treeview">
           <a href="#">
             <i class="fa fa-money"></i> <span>Payments Management</span>
@@ -105,7 +122,7 @@
            
           </ul>
         </li>
-
+        <?php } ?>
 
       </ul>
     </section>

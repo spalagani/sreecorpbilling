@@ -142,3 +142,13 @@
 [29-Mar-2020 00:01:40 America/Chicago] PHP Parse error:  syntax error, unexpected '$_POST' (T_VARIABLE) in /home2/sreecorp/public_html/bb/login.php on line 28
 [29-Mar-2020 00:01:56 America/Chicago] PHP Parse error:  syntax error, unexpected '$_POST' (T_VARIABLE) in /home2/sreecorp/public_html/bb/login.php on line 28
 [29-Mar-2020 00:01:59 America/Chicago] PHP Parse error:  syntax error, unexpected '$_POST' (T_VARIABLE) in /home2/sreecorp/public_html/bb/login.php on line 28
+[19-Apr-2020 05:13:02 Asia/Kolkata] PHP Warning:  include(../valid.php): failed to open stream: No such file or directory in /home2/sreecorp/public_html/bb/aside.php on line 2
+[19-Apr-2020 05:13:02 Asia/Kolkata] PHP Warning:  include(../valid.php): failed to open stream: No such file or directory in /home2/sreecorp/public_html/bb/aside.php on line 2
+[19-Apr-2020 05:13:02 Asia/Kolkata] PHP Warning:  include(): Failed opening '../valid.php' for inclusion (include_path='.:/opt/php56/lib/php') in /home2/sreecorp/public_html/bb/aside.php on line 2
+[19-Apr-2020 05:13:38 Asia/Kolkata] PHP Warning:  include(/valid.php): failed to open stream: No such file or directory in /home2/sreecorp/public_html/bb/aside.php on line 2
+[19-Apr-2020 05:13:38 Asia/Kolkata] PHP Warning:  include(): Failed opening '/valid.php' for inclusion (include_path='.:/opt/php56/lib/php') in /home2/sreecorp/public_html/bb/aside.php on line 2
+[19-Apr-2020 05:14:28 Asia/Kolkata] PHP Fatal error:  Call to undefined function alert() in /home2/sreecorp/public_html/bb/aside.php on line 6
+[19-Apr-2020 05:16:38 Asia/Kolkata] PHP Warning:  log() expects parameter 1 to be double, string given in /home2/sreecorp/public_html/bb/aside.php on line 6
+[19-Apr-2020 05:17:16 Asia/Kolkata] PHP Warning:  log() expects parameter 1 to be double, string given in /home2/sreecorp/public_html/bb/aside.php on line 6
+[19-Apr-2020 05:20:50 Asia/Kolkata] PHP Fatal error:  Call to undefined function alert() in /home2/sreecorp/public_html/bb/aside.php on line 6
+[19-Apr-2020 05:49:13 Asia/Kolkata] PHP Parse error:  syntax error, unexpected '$row5' (T_VARIABLE) in /home2/sreecorp/public_html/bb/aside.php on line 52

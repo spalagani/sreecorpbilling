@@ -3,7 +3,7 @@ $servername = "localhost";
 $username = "sreecorp_root";
 $password = "test123";
 $db="sreecorp_bb";
-$serverurl = "http://sreecorp.com/bb/";
+$serverurl = "http://sreecorp.com/cms/";
 
 
 $conn = new mysqli($servername, $username, $password, $db);

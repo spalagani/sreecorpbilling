@@ -61,7 +61,14 @@ include("../head.php");
     <div class="row">
       <div class="col-md-12">
         <div class="box box-primary">
+          <div class="alert alert-danger alert-dismissible errordiv hide">
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+              <p class="errorText"></p>
+          </div>
 
+          <div class="alert alert-success hide successdiv">
+            <p class="successText"></p>
+          </div>
           <form role="form" method="post" enctype='multipart/form-data' id="excelupload">
             <div class="box-body">
               <div class="form-group">
@@ -107,6 +114,7 @@ include("../head.php");
 <script type="text/javascript">
   $(document).ready(function(e) {
       $('#excelimport_btn').click(function(e) {
+          $('.errordiv,.successdiv').hide();
           var file_data = $('#excel_file').prop('files')[0];   
           var form_data = new FormData();                  
           form_data.append('file', file_data);
@@ -119,7 +127,17 @@ include("../head.php");
             data: form_data,                         
             type: 'post',
             success: function(response){
-               alert(response.message);
+              console.log(response.status);
+               if (response.status) {
+                  console.log(response.message);
+                  $('.successText').text(response.message);
+                  $('.successdiv').removeClass('hide').css('display','block');
+                  setTimeout(function(){ $('.successdiv').hide(); }, 4000);
+               } else {
+                  console.log(response.message);
+                  $('.errorText').text(response.message);
+                  $('.errordiv').removeClass('hide').css('display','block');
+               }
                $('#excelupload').trigger("reset");
             }
          });
